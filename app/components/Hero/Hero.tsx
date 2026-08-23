@@ -35,9 +35,9 @@ export const Hero = ({
         {/* Subtle Radial Vignette for Center Text Legibility */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.65)_100%)] pointer-events-none" />
 
-        {/* ── Perfectly Centered Hero Content ── */}
+  
         <div className="absolute inset-0 z-10 flex items-center justify-center select-none">
-          <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center justify-center">
+          <div className="max-w-5xl w-full mx-auto px-2 md:px-8 text-center flex flex-col items-center justify-center">
             {/* Kicker Pill Badge */}
            
               
