@@ -28,8 +28,7 @@ export const Hero = ({
           className="object-cover object-[center_35%]"
         />
 
-        {/* ── Professional Cinematic Atmospheric Scrim Overlays ── */}
-        {/* Top Dark Header Scrim for Navbar Contrast */}
+       
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/5 pointer-events-none" />
         
         {/* Subtle Radial Vignette for Center Text Legibility */}
@@ -53,7 +52,6 @@ export const Hero = ({
           </div>
         </div>
 
-        {/* Bottom Smooth Transition to Page Grid */}
         <div className="absolute bottom-0 inset-x-0 h-12 md:h-20 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
       </div>
     </section>
