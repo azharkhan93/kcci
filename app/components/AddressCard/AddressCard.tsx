@@ -29,7 +29,7 @@ export const AddressCard = ({
     >
       {/* ── Title ─────────────────────────────────────────── */}
       <div className="border-b border-gray-200 pb-3">
-        <h3 className="font-bold text-xl text-[#582c83] tracking-tight">
+        <h3 className="font-bold text-xl text-[#1b4332] tracking-tight">
           {title}
         </h3>
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mt-1">
@@ -41,14 +41,14 @@ export const AddressCard = ({
       <div className="space-y-5">
         {/* Email */}
         <div className="flex items-center gap-3.5 pb-3 border-b border-gray-100">
-          <div className="w-10 h-10 rounded-lg bg-purple-50 text-[#582c83] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-[#1b4332] flex items-center justify-center flex-shrink-0">
             <Mail className="w-5 h-5" />
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-xs font-medium text-gray-500">Email Us</p>
             <a
               href={`mailto:${email}`}
-              className="text-[#582c83] font-semibold text-sm hover:underline transition-colors block break-words"
+              className="text-[#1b4332] font-semibold text-sm hover:underline transition-colors block break-words"
             >
               {email}
             </a>
@@ -57,7 +57,7 @@ export const AddressCard = ({
 
         {/* Location Address */}
         <div className="flex items-start gap-3.5 pb-3 border-b border-gray-100">
-          <div className="w-10 h-10 rounded-lg bg-purple-50 text-[#582c83] flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-[#1b4332] flex items-center justify-center flex-shrink-0 mt-0.5">
             <MapPin className="w-5 h-5" />
           </div>
           <div className="min-w-0 flex-1">
@@ -74,7 +74,7 @@ export const AddressCard = ({
 
         {/* Phone */}
         <div className="flex items-center gap-3.5 pb-3 border-b border-gray-100">
-          <div className="w-10 h-10 rounded-lg bg-purple-50 text-[#582c83] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-[#1b4332] flex items-center justify-center flex-shrink-0">
             <Phone className="w-5 h-5" />
           </div>
           <div className="min-w-0 flex-1">
@@ -85,7 +85,7 @@ export const AddressCard = ({
 
         {/* Working Hours */}
         <div className="flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-lg bg-purple-50 text-[#582c83] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-[#1b4332] flex items-center justify-center flex-shrink-0">
             <Clock className="w-5 h-5" />
           </div>
           <div className="min-w-0 flex-1">

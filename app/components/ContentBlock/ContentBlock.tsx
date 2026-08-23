@@ -43,13 +43,13 @@ export const ContentBlock = ({
       {/* Header */}
       <div className="flex items-center gap-3">
         {Icon && (
-          <div className="w-10 h-10 rounded-xl bg-[#582c83] flex items-center justify-center flex-shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-[#1b4332] flex items-center justify-center flex-shrink-0">
             <Icon className="w-5 h-5 text-amber-300" />
           </div>
         )}
         <div>
           {badge && (
-            <p className="text-xs font-bold text-[#582c83] uppercase tracking-widest">{badge}</p>
+            <p className="text-xs font-bold text-[#1b4332] uppercase tracking-widest">{badge}</p>
           )}
           <Heading className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight leading-tight">
             {title}
@@ -66,7 +66,7 @@ export const ContentBlock = ({
       {downloadLabel && downloadHref && (
         <Link
           href={downloadHref}
-          className="inline-flex items-center gap-2 text-[#582c83] font-semibold text-sm hover:underline mt-1"
+          className="inline-flex items-center gap-2 text-[#1b4332] font-semibold text-sm hover:underline mt-1"
         >
           <Download className="w-4 h-4 text-[#d99b26]" />
           {downloadLabel}

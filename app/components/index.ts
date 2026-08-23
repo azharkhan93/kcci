@@ -1,28 +1,25 @@
 export * from "./Button";
 export * from "./Hero";
-export * from "./Sidebar";
-export * from "./PageContent";
+export * from "./Navbar";
+export * from "./ResearchApproach";
+export * from "./LabGallery";
+export * from "./ResearchProjectsList";
+export * from "./ProjectDetail";
+
 export * from "./AddressCard";
 export * from "./ServiceCard";
-export * from "./FertilizerRecommendations";
-export * from "./SampleDropoff";
+
+
 export * from "./TeamSection";
-export * from "./SoilAnalysisPage";
-export * from "./SoilSampleCollection";
-export * from "./SoilAvailableTests";
-export * from "./SoilResearchers";
-export * from "./TestsGrid";
-export * from "./SampleSteps";
+
 export * from "./ContentBlock";
-export * from "./LimeAnalysisPage";
-export * from "./PlantForageGrainPage";
-export * from "./WaterAnalysisPage";
-export * from "./LeafAnalysisPage";
-export * from "./GetFormsPage";
-export * from "./EquipmentsPage";
+
+
 export * from "./CtaSection";
-export * from "./PayComingSoonModal";
-export * from "./PriceListTable";
-export * from "./TestBookingModal";
+
 export * from "./Input";
 export * from "./Select";
+export * from "./Contact";
+export * from "./Footer";
+export * from "./About";
+export * from "./NewsEvents";

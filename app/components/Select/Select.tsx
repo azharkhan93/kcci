@@ -98,7 +98,7 @@ export const Select: React.FC<SelectProps> = ({
           error
             ? "border-red-400 focus:ring-red-200"
             : isOpen
-            ? "border-[#582c83] ring-2 ring-[#582c83]/20 bg-white"
+            ? "border-[#1b4332] ring-2 ring-[#1b4332]/20 bg-white"
             : "border-gray-300 hover:border-gray-400"
         } rounded-xl text-sm transition-all text-left cursor-pointer disabled:bg-gray-100 disabled:opacity-60 disabled:cursor-not-allowed ${className}`}
       >
@@ -114,14 +114,14 @@ export const Select: React.FC<SelectProps> = ({
 
         <ChevronDown
           className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
-            isOpen ? "rotate-180 text-[#582c83]" : ""
+            isOpen ? "rotate-180 text-[#1b4332]" : ""
           }`}
         />
       </button>
 
       {/* Dropdown Options Popover Menu */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full mt-1.5 z-50 bg-white border border-purple-100 rounded-2xl shadow-xl overflow-hidden animate-in fade-in-50 slide-in-from-top-2 duration-150">
+        <div className="absolute left-0 right-0 top-full mt-1.5 z-50 bg-white border border-emerald-100 rounded-2xl shadow-xl overflow-hidden animate-in fade-in-50 slide-in-from-top-2 duration-150">
           {/* Optional Search Input */}
           {searchable && (
             <div className="p-2 border-b border-gray-100 bg-gray-50">
@@ -132,7 +132,7 @@ export const Select: React.FC<SelectProps> = ({
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-[#582c83]"
+                  className="w-full pl-8 pr-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-[#1b4332]"
                   autoFocus
                 />
               </div>
@@ -151,7 +151,7 @@ export const Select: React.FC<SelectProps> = ({
                     onClick={() => handleSelect(opt.value)}
                     className={`w-full px-3.5 py-2.5 text-xs text-left flex items-center justify-between gap-2 transition-colors cursor-pointer ${
                       isSelected
-                        ? "bg-purple-50 text-[#582c83] font-bold"
+                        ? "bg-emerald-50 text-[#1b4332] font-bold"
                         : "text-gray-700 hover:bg-gray-50 font-medium"
                     }`}
                   >
@@ -168,7 +168,7 @@ export const Select: React.FC<SelectProps> = ({
                     </div>
 
                     {isSelected && (
-                      <Check className="w-4 h-4 text-[#582c83] flex-shrink-0" />
+                      <Check className="w-4 h-4 text-[#1b4332] flex-shrink-0" />
                     )}
                   </button>
                 );

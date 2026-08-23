@@ -38,63 +38,24 @@ export const BREADCRUMBS = [
   { label: "Soil Testing Laboratory", href: "#" },
 ];
 
-export const SIDEBAR_NAV: NavSection[] = [
-  {
-    title: "Lab Overview",
-    href: "/",
-    links: [
-      { label: "Soil Analysis", href: "/soil-analysis", iconName: "sprout" },
-      { label: "Lime Analysis", href: "/lime-analysis", iconName: "flask" },
-      {
-        label: "Plant, Forage, & Grain Analysis",
-        href: "/plant-forage-grain",
-        iconName: "wheat",
-      },
-      { label: "Water Analysis", href: "/water-analysis", iconName: "droplet" },
-      { label: "Leaf Analysis", href: "/leaf-analysis", iconName: "leaf" },
-      {
-        label: "Fertilizer Recommendations",
-        href: "/fertilizer",
-        iconName: "sparkles",
-      },
-      {
-        label: "Lab & Sampling Equipment",
-        href: "/equipments",
-        iconName: "wrench",
-      },
-      { label: "Get the Forms", href: "/forms", iconName: "fileText" },
-    ],
-  },
-  // {
-  //   title: "Crop Performance Tests",
-  //   links: [
-  //     { label: "Overview", href: "/crop-performance", iconName: "barChart" },
-  //     {
-  //       label: "Rice & Maize Performance",
-  //       href: "/crop-tests",
-  //       iconName: "wheat",
-  //     },
-  //     {
-  //       label: "Apple & Horticulture Tests",
-  //       href: "/horticulture-tests",
-  //       iconName: "apple",
-  //     },
-  //     {
-  //       label: "Saffron & Soil Quality",
-  //       href: "/saffron-tests",
-  //       iconName: "flower",
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: "Faculty of Agriculture",
-  //   href: "/faculty-agriculture",
-  // },
-  // {
-  //   title: "SKUAST-K Weather Station",
-  //   href: "/weather-climate",
-  // },
+export const TESTING_SERVICES_LINKS: NavLink[] = [
+  { label: "Soil & Water Testing Intake", href: "/contact" },
+  { label: "Drone / UAV & GIS Services", href: "/research-projects" },
+  { label: "Precision Agronomy Trials", href: "/research-projects/drap" },
+  { label: "Analytical Instrumentation", href: "/about" },
+  { label: "Faculty & Soil Scientists", href: "/lab-members" },
+  { label: "Research Bulletin & News", href: "/news-events" },
 ];
+
+export const RESEARCH_LINKS: NavLink[] = [
+  { label: "All Research Projects", href: "/research-projects" },
+  { label: "D-RAP Drought Shelter Trial", href: "/research-projects/drap" },
+  { label: "UAV Multispectral Mapping", href: "/research-projects/drone-sensors" },
+  { label: "Laboratory Core Facilities", href: "/about" },
+  { label: "Lab Members & Scholars", href: "/lab-members" },
+  { label: "Helpdesk & Directions", href: "/contact" },
+];
+
 
 export const LAB_CONTACT_INFO = {
   title: "Soil Testing Laboratory",
@@ -854,7 +815,7 @@ export const SAMPLE_FORMS_DATA: {
         { title: "Soil Sample Information Sheet for Farmers", category: "Producers", fileFormat: "PDF", href: "/forms/soil-farmers.pdf" },
         { title: "Flower and Ornamental Soil Analysis Form", category: "Horticulture", fileFormat: "PDF", href: "/forms/soil-flower-ornamental.pdf" },
         { title: "Lawn and Turf Soil Analysis Form", category: "Turfgrass", fileFormat: "PDF", href: "/forms/soil-lawn-turf.pdf" },
-        { title: "Vegetable, Fruit, & Nut Soil Analysis Form", category: "Orchards", fileFormat: "PDF", href: "/forms/soil-[#582c83]fruit-nut.pdf" },
+        { title: "Vegetable, Fruit, & Nut Soil Analysis Form", category: "Orchards", fileFormat: "PDF", href: "/forms/soil-[#1b4332]fruit-nut.pdf" },
         { title: "State of Kashmir / SKUAST-K Agency — Scooped Soil Sample", category: "Research", fileFormat: "PDF", href: "/forms/soil-state-scooped.pdf" },
         { title: "State of Kashmir / SKUAST-K Agency — Weighed Soil Sample", category: "Research", fileFormat: "PDF", href: "/forms/soil-state-weighed.pdf" },
         { title: "External Research Agency — Scooped Soil Sample", category: "Research", fileFormat: "PDF", href: "/forms/soil-external-scooped.pdf" },

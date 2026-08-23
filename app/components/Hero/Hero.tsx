@@ -2,44 +2,60 @@ import React from "react";
 import Image from "next/image";
 
 export interface HeroProps {
+  subtitle?: string;
   title?: string;
   imageSrc?: string;
   imageAlt?: string;
 }
 
 export const Hero = ({
-  title = "Soil Testing Lab",
-  imageSrc = "/hero-bg.svg",
-  imageAlt = "SKUAST-K Soil Testing Laboratory",
+  subtitle = "REMOTE SENSING & GIS",
+  title = "GIS SOIL SCIENCE LABORATORY",
+  imageSrc = "/hero-bg.jpg",
+  imageAlt = "GIS Soil Science Laboratory Research Station",
 }: HeroProps): React.ReactElement => {
   return (
-    <header className="relative w-full overflow-hidden bg-gradient-to-r from-[#1e0b36] via-[#582c83] to-[#2a1244]">
-      {/* ── Responsive Aspect Ratio Banner Container ───────────────────── */}
-      <div className="relative w-full aspect-[21/8] sm:aspect-[21/7] md:aspect-[21/6] max-h-[380px] min-h-[180px] flex items-center">
+    <section className="relative w-full overflow-hidden">
+      {/* ── Hero Container ── */}
+      <div className="relative w-full h-[100dvh] min-h-[580px] md:h-[680px]">
+        {/* Landscape Photography */}
         <Image
           src={imageSrc}
           alt={imageAlt}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center brightness-95 saturate-[1.05]"
+          className="object-cover object-[center_35%]"
         />
 
-        {/* Subtle Dark Gradient Overlay for optimal contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
+        {/* ── Professional Cinematic Atmospheric Scrim Overlays ── */}
+        {/* Top Dark Header Scrim for Navbar Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/5 pointer-events-none" />
+        
+        {/* Subtle Radial Vignette for Center Text Legibility */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.65)_100%)] pointer-events-none" />
 
-        {/* ── Title Overlay Band at Bottom Left Aligned with Main Content ── */}
-        <div className="absolute bottom-0 left-0 right-0 max-w-[1440px] mx-auto w-full px-4 sm:px-8 md:px-10 lg:px-16 pointer-events-none z-10">
-          <div className="inline-block bg-[#582c83]/95 backdrop-blur-xs px-4 sm:px-6 py-2.5 sm:py-3.5 shadow-xl pointer-events-auto border-t-2 border-[#d99b26]">
-            <h1 className="text-white font-extrabold text-lg sm:text-2xl md:text-3xl tracking-wide">
+        {/* ── Perfectly Centered Hero Content ── */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center select-none">
+          <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center justify-center">
+            {/* Kicker Pill Badge */}
+           
+              
+              <span className="text-sm font-extrabold uppercase tracking-[0.25em] text-white">
+                {subtitle}
+              </span>
+           
+
+            
+            <h1 className="text-white font-black text-3xl  md:text-6xl  uppercase tracking-tight leading-tight max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
               {title}
             </h1>
           </div>
         </div>
-      </div>
 
-      {/* Accent Gold & Purple Border Stripe */}
-      <div className="h-1.5 bg-[#582c83] border-t border-[#d99b26]/50 w-full" />
-    </header>
+        {/* Bottom Smooth Transition to Page Grid */}
+        <div className="absolute bottom-0 inset-x-0 h-12 md:h-20 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+      </div>
+    </section>
   );
 };

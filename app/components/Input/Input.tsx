@@ -55,7 +55,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             } pr-3 py-2.5 bg-gray-50/80 border ${
               error
                 ? "border-red-400 focus:ring-red-200 focus:border-red-500"
-                : "border-gray-300 focus:ring-[#582c83]/20 focus:border-[#582c83]"
+                : "border-gray-300 focus:ring-[#1b4332]/20 focus:border-[#1b4332]"
             } rounded-xl text-sm text-gray-900 placeholder-gray-400 transition-all focus:bg-white focus:outline-none focus:ring-2 disabled:bg-gray-100 disabled:opacity-60 disabled:cursor-not-allowed ${className}`}
             {...props}
           />

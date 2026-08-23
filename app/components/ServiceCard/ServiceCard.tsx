@@ -77,13 +77,13 @@ export const ServiceCard = ({
         {customIcon ? (
           customIcon
         ) : (
-          <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-[#582c83] stroke-[1.75]" />
+          <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-[#1b4332] stroke-[1.75]" />
         )}
       </div>
 
       {/* ── Text Content Block (Expands to Full Width) ────────── */}
       <div className="flex-1 min-w-0 space-y-1.5 w-full">
-        <h3 className="text-xl sm:text-2xl font-bold text-[#582c83] tracking-tight">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#1b4332] tracking-tight">
           {cardTitle}
         </h3>
         <p className="text-gray-700 text-sm sm:text-base leading-normal w-full">
@@ -93,7 +93,7 @@ export const ServiceCard = ({
           <a
             href={cardHref}
             onClick={handleLinkClick}
-            className="inline-flex items-center gap-1 text-[#582c83] font-bold text-sm sm:text-base hover:text-[#442166] transition-colors group cursor-pointer"
+            className="inline-flex items-center gap-1 text-[#1b4332] font-bold text-sm sm:text-base hover:text-[#081c15] transition-colors group cursor-pointer"
           >
             <span>{cardLinkText}</span>
             <span className="text-[#d99b26] font-normal group-hover:translate-x-1 transition-transform">
