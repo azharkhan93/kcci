@@ -16,9 +16,9 @@ export const Hero = ({
 }: HeroProps): React.ReactElement => {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* ── Hero Container ── */}
+     
       <div className="relative w-full h-[100dvh] min-h-[580px] md:h-[680px]">
-        {/* Landscape Photography */}
+       
         <Image
           src={imageSrc}
           alt={imageAlt}

@@ -17,11 +17,11 @@ export interface CtaSectionProps {
 }
 
 export const CtaSection: React.FC<CtaSectionProps> = ({
-  badge = "UPDATES FROM THE LAB",
-  title = "THE DART NEWS",
-  buttonText = "VIEW LATEST POSTS",
+  badge = "UPDATES & RESEARCH BULLETINS",
+  title = "GIS & REMOTE SENSING NEWS",
+  buttonText = "EXPLORE NEWS & EVENTS",
   imageSrc = "/hero-bg.jpg",
-  href = "/research-projects",
+  href = "/news-events",
   onButtonClick,
   className = "",
 }) => {
