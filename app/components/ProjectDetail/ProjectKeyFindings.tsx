@@ -13,7 +13,7 @@ export const ProjectKeyFindings: React.FC<ProjectKeyFindingsProps> = ({ project 
     <section className="w-full pt-8 sm:pt-10 border-t border-gray-100">
       <div className="flex items-center gap-2 mb-6">
         <Sparkles className="w-5 h-5 text-[#1b4332]" />
-        <h2 className="text-xl sm:text-2xl font-black text-gray-950 uppercase tracking-tight font-sans">
+        <h2 className="text-xl sm:text-2xl font-black text-gray-950 uppercase tracking-tight">
           Key Empirical Discoveries &amp; Impact
         </h2>
       </div>

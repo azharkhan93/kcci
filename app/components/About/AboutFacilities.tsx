@@ -55,8 +55,8 @@ export const AboutFacilities: React.FC<AboutFacilitiesProps> = ({
       {/* ── Section Header ── */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-2">
-            <span>Research Infrastructure</span>
+          <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-2">
+            Research Infrastructure
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
             State-of-the-Art Analytical Instrumentation
@@ -89,7 +89,7 @@ export const AboutFacilities: React.FC<AboutFacilitiesProps> = ({
                   <div className="w-11 h-11 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#2d6a4f]">
                     {facility.category}
                   </span>
                 </div>

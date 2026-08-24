@@ -1,5 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Michroma&family=Space+Grotesk:wght@300..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-cabin, "Cabin"), "Titillium Web", var(--font-space-grotesk, "Space Grotesk"), system-ui, sans-serif;
+  --font-cabin: var(--font-cabin, "Cabin"), system-ui, sans-serif;
+  --font-michroma: var(--font-michroma, "Michroma"), system-ui, sans-serif;
+  --font-space: var(--font-space-grotesk, "Space Grotesk"), system-ui, sans-serif;
+  --font-titillium: var(--font-titillium-web, "Titillium Web"), system-ui, sans-serif;
+}
 
 :root {
   --color-primary: #1b4332;
@@ -10,6 +18,7 @@
   --gradient-emerald-forest: linear-gradient(135deg, #059669 0%, #1b4332 100%);
   --gradient-forest: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
   --gradient-emerald-glow: linear-gradient(135deg, #10b981 0%, #059669 50%, #1b4332 100%);
+  --font-family-cabin: "Cabin", system-ui, sans-serif;
   --font-family-michroma: "Michroma", system-ui, sans-serif;
   --font-family-space: "Space Grotesk", system-ui, sans-serif;
   --font-family-titillium: "Titillium Web", system-ui, sans-serif;
@@ -30,18 +39,34 @@ textarea,
 p,
 span,
 a,
-li {
-  font-family: var(--font-space-grotesk, 'Space Grotesk'), "Titillium Web", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+li,
+div,
+.font-body {
+  font-family: var(--font-cabin, 'Cabin'), "Titillium Web", var(--font-space-grotesk, 'Space Grotesk'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+/* ── Headings ── */
 h1,
 h2,
+.font-heading {
+  font-family: var(--font-cabin, 'Cabin'), "Titillium Web", var(--font-space-grotesk, 'Space Grotesk'), system-ui, sans-serif;
+}
+
+/* ── Subheadings & Section Kickers ── */
 h3,
 h4,
 h5,
 h6,
+.font-subheading {
+  font-family: var(--font-cabin, 'Cabin'), "Titillium Web", var(--font-space-grotesk, 'Space Grotesk'), system-ui, sans-serif;
+}
+
+.font-cabin {
+  font-family: var(--font-cabin, 'Cabin'), system-ui, sans-serif;
+}
+
 .font-michroma {
-  font-family: var(--font-michroma, 'Michroma'), var(--font-space-grotesk, 'Space Grotesk'), system-ui, sans-serif;
+  font-family: var(--font-michroma, 'Michroma'), system-ui, sans-serif;
 }
 
 .font-space {

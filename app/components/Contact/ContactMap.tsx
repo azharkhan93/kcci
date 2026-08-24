@@ -39,7 +39,7 @@ export const ContactMap: React.FC<ContactMapProps> = ({ className = "" }) => {
       {/* ── Section Header ── */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-2">
             <Compass className="w-3.5 h-3.5" />
             <span>Interactive Campus Location</span>
           </div>

@@ -91,7 +91,7 @@ export const AboutMission: React.FC<AboutMissionProps> = ({ className = "" }) =>
 
         {/* Section Header */}
         <div className="relative z-10 max-w-3xl mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 border border-[#1b4332]/20 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-3">
             <Target className="w-3.5 h-3.5" />
             <span>Our Core Mission</span>
           </div>
@@ -120,7 +120,7 @@ export const AboutMission: React.FC<AboutMissionProps> = ({ className = "" }) =>
                     <div className="w-10 h-10 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center group-hover/item:scale-105 group-hover/item:bg-[#1b4332] group-hover/item:text-white transition-all duration-200">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="font-mono text-xs font-bold text-[#d99b26] bg-[#d99b26]/10 px-2 py-0.5 rounded-md">
+                    <span className="font-mono text-xs font-bold text-[#d99b26]">
                       {goal.number}
                     </span>
                   </div>
@@ -151,7 +151,7 @@ export const AboutMission: React.FC<AboutMissionProps> = ({ className = "" }) =>
 
         {/* Section Header */}
         <div className="relative z-10 max-w-3xl mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#d99b26]/15 border border-[#d99b26]/30 text-[#8a5d0a] text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#8a5d0a] mb-3">
             <Compass className="w-3.5 h-3.5 text-[#d99b26]" />
             <span>Strategic Vision</span>
           </div>

@@ -62,10 +62,9 @@ export const ResearchApproach = (): React.ReactElement => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* ── Section Header ── */}
         <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-          {/* Green Category Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 mb-4 sm:mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-emerald-800">
+          {/* Section Kicker - Simple text format */}
+          <div className="mb-4 sm:mb-5">
+            <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f]">
               Research, Teaching and Outreach Approach
             </span>
           </div>
@@ -107,9 +106,9 @@ export const ResearchApproach = (): React.ReactElement => {
                   {/* Subtle Gradient Shade on bottom of Image */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                  {/* Micro Category Pill Tag */}
+                  {/* Micro Category Tag */}
                   <div className="absolute top-3 left-3 z-10">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/90 backdrop-blur-md text-gray-800 shadow-xs border border-white/40">
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-gray-900 bg-white/95 backdrop-blur-md">
                       <Icon className="w-3 h-3 text-emerald-700" />
                       {pillar.category}
                     </span>

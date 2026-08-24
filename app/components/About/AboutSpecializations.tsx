@@ -64,8 +64,8 @@ export const AboutSpecializations: React.FC<AboutSpecializationsProps> = ({
     <div className={`space-y-6 ${className}`}>
       {/* ── Section Header ── */}
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#1b4332]/10 text-[#1b4332] text-[11px] font-bold uppercase tracking-wider mb-2">
-          <span>Core Capabilities</span>
+        <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-2">
+          Core Capabilities
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
           What Sets Our Laboratory Apart
@@ -85,12 +85,12 @@ export const AboutSpecializations: React.FC<AboutSpecializationsProps> = ({
               className="bg-white rounded-2xl border border-gray-200/80 p-5 sm:p-6 shadow-xs hover:shadow-md hover:border-[#1b4332]/40 transition-all duration-200 flex flex-col justify-between group"
             >
               <div>
-                {/* Header: Icon & Category Badge */}
+                {/* Header: Icon & Category Tag */}
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-10 h-10 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#2d6a4f]">
                     {item.category}
                   </span>
                 </div>

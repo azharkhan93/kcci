@@ -30,7 +30,7 @@ export const ProjectHeroMedia: React.FC<ProjectHeroMediaProps> = ({ project }) =
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3.5 bg-black/60 backdrop-blur-xl p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-white/15 shadow-xl text-white">
             {project.metrics.map((metric, idx) => (
               <div key={idx} className="flex flex-col items-center justify-center p-2 text-center">
-                <span className="text-xl sm:text-2xl md:text-3xl font-black text-emerald-400 font-sans tracking-tight">
+                <span className="text-xl sm:text-2xl md:text-3xl font-black text-emerald-400 tracking-tight">
                   {metric.value}
                 </span>
                 <span className="text-[10px] sm:text-xs uppercase font-bold text-gray-300 tracking-wider mt-0.5">

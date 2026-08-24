@@ -29,27 +29,46 @@ export const Footer: React.FC<FooterProps> = ({ className = "" }) => {
 
   return (
     <footer className={`relative bg-[#081c15] text-white border-t border-[#1b4332]/60 overflow-hidden ${className}`}>
-      {/* Background Subtle Gradient & Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1b4332_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#059669]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#10b981]/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Very Minimal Dark Gradient Base */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a231b] via-[#081c15] to-[#061711] pointer-events-none" />
 
-      {/* Top Accent Strip with Emerald-Forest Gradient */}
-      <div className="w-full h-1 bg-gradient-to-r from-[#1b4332] via-[#059669] to-[#10b981]" />
+      {/* Geometric Square Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #10b981 1px, transparent 1px),
+            linear-gradient(to bottom, #10b981 1px, transparent 1px)
+          `,
+          backgroundSize: "36px 36px",
+        }}
+      />
+
+      {/* Subtle Geometric Square Outlines (Right side) */}
+      <div className="absolute -top-12 right-12 w-64 h-64 border border-emerald-400/10 pointer-events-none" />
+      <div className="absolute top-6 right-24 w-44 h-44 border border-emerald-400/10 pointer-events-none" />
+      <div className="absolute top-18 right-36 w-24 h-24 border border-emerald-400/10 pointer-events-none" />
+
+      {/* Subtle Geometric Square Outlines (Left side) */}
+      <div className="absolute -bottom-16 left-8 w-56 h-56 border border-emerald-400/10 pointer-events-none" />
+      <div className="absolute bottom-4 left-24 w-36 h-36 border border-emerald-400/10 pointer-events-none" />
+      <div className="absolute bottom-16 left-36 w-20 h-20 border border-emerald-400/10 pointer-events-none" />
+
+      {/* Top Accent Strip */}      <div className="w-full h-1 bg-gradient-to-r from-[#1b4332] via-[#059669] to-[#10b981]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-16 pb-12">
-        {/* ── Main 4-Column Grid ── */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           
-          {/* ── Col 1: Brand & Lab Identity (4 cols) ── */}
+          
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              {/* Scientific GIS Logo Icon */}
+             
               <div className="w-11 h-11 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-[#1b4332] to-[#081c15] rounded-xl text-emerald-400 border border-emerald-400/40 shadow-sm group-hover:scale-105 transition-transform duration-200">
                 <Satellite className="w-6 h-6" />
               </div>
 
-              {/* Logo Title */}
+              
               <div className="flex flex-col">
                 <span className="font-extrabold text-lg sm:text-xl tracking-wider text-white leading-none">
                   GIS SOIL SCIENCE LAB

@@ -34,14 +34,13 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
 
         {/* Header Content */}
         <div className="max-w-3xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 border border-[#1b4332]/20 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#d99b26] animate-pulse" />
-            <span>{badge}</span>
+          {/* Section Kicker - Simple text format */}
+          <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-3">
+            {badge}
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 uppercase font-sans tracking-tight leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 uppercase tracking-tight leading-tight mb-4">
             {title}
           </h1>
 

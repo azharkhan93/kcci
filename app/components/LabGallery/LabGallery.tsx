@@ -121,10 +121,9 @@ export const LabGallery: React.FC<LabGalleryProps> = ({ className = "" }): React
         {/* ── Section Header (Aligned Left with Top Controls) ── */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#d99b26] animate-pulse" />
-              <span>Field Activities &amp; Facilities</span>
+            {/* Section Kicker - Simple text format */}
+            <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-2">
+              Field Activities &amp; Facilities
             </div>
 
             {/* Main Headline */}
@@ -213,17 +212,21 @@ export const LabGallery: React.FC<LabGalleryProps> = ({ className = "" }): React
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-auto max-w-xl z-20 pointer-events-none">
               <div className="pointer-events-auto bg-black/65 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-white/15 shadow-2xl text-white">
                 {/* Category & Location Badges */}
-                <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-[#1b4332] text-emerald-100 border border-emerald-400/30">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2.5 text-[11px] font-semibold">
+                  <span className="text-[#d99b26] font-bold uppercase tracking-wider">
                     {currentSlide.category}
                   </span>
 
-                  <div className="flex items-center gap-1 text-[11px] text-gray-300 font-medium">
+                  <span className="text-gray-400">•</span>
+
+                  <div className="flex items-center gap-1 text-gray-200">
                     <MapPin className="w-3 h-3 text-[#d99b26]" />
                     <span>{currentSlide.location}</span>
                   </div>
 
-                  <div className="flex items-center gap-1 text-[11px] text-gray-300 font-medium">
+                  <span className="text-gray-400">•</span>
+
+                  <div className="flex items-center gap-1 text-gray-200">
                     <Calendar className="w-3 h-3 text-amber-300" />
                     <span>{currentSlide.date}</span>
                   </div>

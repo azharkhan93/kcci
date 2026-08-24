@@ -15,7 +15,7 @@ export const ProjectSidebarInfo: React.FC<ProjectSidebarInfoProps> = ({ project 
       <div className="p-5 sm:p-6 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
         <div className="flex items-center gap-2 mb-4">
           <Cpu className="w-4 h-4 text-[#2d6a4f]" />
-          <h3 className="text-sm font-extrabold uppercase tracking-wider text-gray-900 font-sans">
+          <h3 className="text-sm font-extrabold uppercase tracking-wider text-gray-900">
             Instrumentation &amp; Equipment
           </h3>
         </div>
@@ -34,7 +34,7 @@ export const ProjectSidebarInfo: React.FC<ProjectSidebarInfoProps> = ({ project 
       <div className="p-5 sm:p-6 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
         <div className="flex items-center gap-2 mb-4">
           <Users className="w-4 h-4 text-[#1b4332]" />
-          <h3 className="text-sm font-extrabold uppercase tracking-wider text-gray-900 font-sans">
+          <h3 className="text-sm font-extrabold uppercase tracking-wider text-gray-900">
             Research Investigators
           </h3>
         </div>
@@ -53,16 +53,16 @@ export const ProjectSidebarInfo: React.FC<ProjectSidebarInfoProps> = ({ project 
       <div className="p-5 sm:p-6 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
         <div className="flex items-center gap-2 mb-3">
           <Tag className="w-4 h-4 text-gray-500" />
-          <h3 className="text-sm font-extrabold uppercase tracking-wider text-gray-900 font-sans">
+          <h3 className="text-sm font-extrabold uppercase tracking-wider text-gray-900">
             Research Tags
           </h3>
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-x-2.5 gap-y-1.5 text-xs text-gray-600 font-medium">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="text-[11px] font-medium text-gray-600 bg-gray-100 hover:bg-emerald-50 hover:text-emerald-800 transition-colors px-2.5 py-1 rounded-md"
+              className="text-[11px] text-gray-500 hover:text-[#2d6a4f] transition-colors"
             >
               #{tag}
             </span>

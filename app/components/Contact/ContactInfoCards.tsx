@@ -35,10 +35,10 @@ export const ContactInfoCards: React.FC<ContactInfoCardsProps> = ({
           <div className="w-12 h-12 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
             <MapPin className="w-6 h-6" />
           </div>
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20">
+          <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#2d6a4f] block">
             Physical Campus
           </span>
-          <h3 className="text-lg font-bold text-gray-950 mt-2 mb-2">
+          <h3 className="text-lg font-bold text-gray-950 mt-1 mb-2">
             Division & Laboratory
           </h3>
           <p className="text-xs text-gray-600 leading-relaxed">
@@ -67,10 +67,10 @@ export const ContactInfoCards: React.FC<ContactInfoCardsProps> = ({
           <div className="w-12 h-12 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
             <Mail className="w-6 h-6" />
           </div>
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20">
+          <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#2d6a4f] block">
             Official Inquiries
           </span>
-          <h3 className="text-lg font-bold text-gray-950 mt-2 mb-2">
+          <h3 className="text-lg font-bold text-gray-950 mt-1 mb-2">
             Email Channels
           </h3>
           <p className="text-xs text-gray-500 mb-3">
@@ -113,10 +113,10 @@ export const ContactInfoCards: React.FC<ContactInfoCardsProps> = ({
           <div className="w-12 h-12 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
             <Phone className="w-6 h-6" />
           </div>
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20">
+          <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#2d6a4f] block">
             Telephone
           </span>
-          <h3 className="text-lg font-bold text-gray-950 mt-2 mb-2">
+          <h3 className="text-lg font-bold text-gray-950 mt-1 mb-2">
             Direct Helpdesk
           </h3>
           <p className="text-xs text-gray-500 mb-3">
@@ -148,13 +148,10 @@ export const ContactInfoCards: React.FC<ContactInfoCardsProps> = ({
           <div className="w-12 h-12 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
             <Clock className="w-6 h-6" />
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#d99b26] animate-pulse" />
-              Open Mon-Fri
-            </span>
-          </div>
-          <h3 className="text-lg font-bold text-gray-950 mt-2 mb-2">
+          <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#2d6a4f] block">
+            Open Mon-Fri
+          </span>
+          <h3 className="text-lg font-bold text-gray-950 mt-1 mb-2">
             Lab Schedule
           </h3>
           <p className="text-xs text-gray-600 leading-relaxed mb-2">

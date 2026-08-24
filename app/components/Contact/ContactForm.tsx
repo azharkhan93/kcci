@@ -147,7 +147,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     >
       {/* ── Header ── */}
       <div className="mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-2">
+        <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-2">
           <MessageSquare className="w-3.5 h-3.5" />
           <span>Direct Inquiry Form</span>
         </div>
@@ -166,7 +166,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             <CheckCircle2 className="w-9 h-9" />
           </div>
 
-          <span className="text-xs font-bold uppercase tracking-widest text-[#1b4332] bg-[#1b4332]/10 px-3 py-1 rounded-full border border-[#1b4332]/20 mb-2">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#2d6a4f] block mb-2">
             Inquiry Dispatched
           </span>
 

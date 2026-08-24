@@ -20,8 +20,8 @@ export const EventsList: React.FC<EventsListProps> = ({
       {/* ── Section Title Header ── */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-[#d99b26]/15 text-[#8a5d0a] text-[11px] font-bold uppercase tracking-wider mb-2">
-            <Sparkles className="w-3 h-3 text-[#d99b26]" />
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#8a5d0a] mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#d99b26]" />
             <span>Academic &amp; Outreach Calendar</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
@@ -51,7 +51,7 @@ export const EventsList: React.FC<EventsListProps> = ({
             <div className="flex items-start gap-4 sm:gap-6 flex-1 min-w-0">
               {/* Date Box */}
               <div className="w-16 sm:w-20 rounded-2xl bg-gradient-to-br from-[#1b4332] to-[#081c15] text-white p-3 text-center flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200">
-                <span className="block text-xl sm:text-2xl font-black font-sans leading-none text-[#d99b26]">
+                <span className="block text-xl sm:text-2xl font-black leading-none text-[#d99b26]">
                   {event.dayMonth.day}
                 </span>
                 <span className="block text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-200 mt-1">
@@ -61,12 +61,13 @@ export const EventsList: React.FC<EventsListProps> = ({
 
               {/* Event Details */}
               <div className="min-w-0 flex-1">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2 text-xs font-semibold uppercase tracking-wider">
+                  <span className="text-[#2d6a4f] font-bold">
                     {event.type}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">
-                    ● {event.status}
+                  <span className="text-gray-300">•</span>
+                  <span className="text-emerald-700 font-bold">
+                    {event.status}
                   </span>
                 </div>
 

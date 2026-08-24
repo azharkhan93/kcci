@@ -55,7 +55,7 @@ export const AboutKeyStats: React.FC<AboutKeyStatsProps> = ({ className = "" }) 
               <div className="w-12 h-12 rounded-xl bg-[#1b4332]/10 text-[#1b4332] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform duration-200">
                 <Icon className="w-6 h-6" />
               </div>
-              <p className="text-3xl sm:text-4xl font-black text-gray-950 font-sans tracking-tight mb-1">
+              <p className="text-3xl sm:text-4xl font-black text-gray-950 tracking-tight mb-1">
                 {stat.value}
               </p>
               <h3 className="text-sm font-bold uppercase tracking-wider text-[#1b4332] mb-2">

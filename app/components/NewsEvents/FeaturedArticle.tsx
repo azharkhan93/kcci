@@ -30,9 +30,9 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent lg:hidden" />
 
-          {/* Floating Badge */}
+          {/* Floating Badge - Simple text */}
           <div className="absolute top-4 left-4 z-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#1b4332] text-white shadow-md border border-emerald-400/30">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white bg-black/80 backdrop-blur-md">
               <Sparkles className="w-3 h-3 text-[#d99b26]" />
               <span>Spotlight Feature</span>
             </span>
@@ -43,15 +43,17 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
         <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
           <div>
             {/* Meta category & Date */}
-            <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-3">
-              <span className="font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 mb-3 font-semibold uppercase tracking-wider">
+              <span className="font-bold text-[#2d6a4f]">
                 {article.category}
               </span>
-              <div className="flex items-center gap-1">
+              <span className="text-gray-300">•</span>
+              <div className="flex items-center gap-1 text-gray-500 font-medium normal-case">
                 <Calendar className="w-3.5 h-3.5 text-gray-400" />
                 <span>{article.date}</span>
               </div>
-              <div className="flex items-center gap-1">
+              <span className="text-gray-300">•</span>
+              <div className="flex items-center gap-1 text-gray-500 font-medium normal-case">
                 <Clock className="w-3.5 h-3.5 text-gray-400" />
                 <span>{article.readTime}</span>
               </div>
@@ -67,12 +69,11 @@ export const FeaturedArticle: React.FC<FeaturedArticleProps> = ({
               {article.summary}
             </p>
 
-            {/* Tags */}
-            <div className="flex flex-wrap items-center gap-1.5 mb-6">
+            {/* Tags - Simple text format */}
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-6 text-xs text-gray-500 font-medium">
               {article.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="text-[11px] font-medium text-gray-600 bg-gray-50 px-2.5 py-1 rounded-lg border border-gray-200/60"
                 >
                   #{tag}
                 </span>

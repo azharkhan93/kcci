@@ -56,7 +56,7 @@ export const ResearchProjectsList: React.FC<ResearchProjectsListProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* ── Section Title ── */}
         <div className="mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 uppercase font-sans tracking-tight leading-none mb-3">
+          <h2 className="text-3xl md:text-4xl font-black text-gray-950 uppercase tracking-tight leading-none mb-3">
             {title}
           </h2>
           {subtitle && (
@@ -105,10 +105,10 @@ export const ResearchProjectsList: React.FC<ResearchProjectsListProps> = ({
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
 
-                {/* Status Pill Badge */}
+                {/* Status indicator - simple text */}
                 <div className="absolute top-3 left-3 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/95 backdrop-blur-md text-emerald-800 border border-white/40 shadow-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-900 bg-white/95 backdrop-blur-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
                     {project.status}
                   </span>
                 </div>
@@ -117,19 +117,19 @@ export const ResearchProjectsList: React.FC<ResearchProjectsListProps> = ({
               {/* ── Project Content Details (Right) ── */}
               <div className="flex flex-col justify-between flex-1 min-w-0 h-full py-1">
                 <div>
-                  {/* Year Tag (Green text matching reference) */}
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm font-bold text-[#2d6a4f] tracking-wide">
+                  {/* Year & Category Tag */}
+                  <div className="flex items-center gap-2 mb-2 text-xs font-semibold uppercase tracking-wider">
+                    <span className="font-bold text-[#2d6a4f]">
                       {project.year}
                     </span>
                     <span className="text-gray-300">•</span>
-                    <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    <span className="text-gray-500">
                       {project.category}
                     </span>
                   </div>
 
                   {/* Project Title */}
-                  <h3 className="text-xl sm:text-2xl md:text-[26px] font-extrabold text-gray-950 tracking-tight leading-snug group-hover:text-[#2d6a4f] transition-colors duration-200 mb-3">
+                  <h3 className="text-xl md:text-2xl font-extrabold text-gray-950 tracking-tight leading-snug group-hover:text-[#2d6a4f] transition-colors duration-200 mb-3">
                     {project.title}
                   </h3>
 
@@ -138,18 +138,18 @@ export const ResearchProjectsList: React.FC<ResearchProjectsListProps> = ({
                     {project.summary}
                   </p>
 
-                  {/* Meta Chips */}
-                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-5">
+                  {/* Meta Details - Simple text format */}
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-gray-600 mb-5">
                     {project.fundingAgency && (
-                      <div className="inline-flex items-center gap-1.5 text-xs text-gray-600 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-200/60">
-                        <Building2 className="w-3.5 h-3.5 text-gray-500" />
+                      <div className="inline-flex items-center gap-1.5 font-medium">
+                        <Building2 className="w-3.5 h-3.5 text-[#2d6a4f]" />
                         <span>{project.fundingAgency}</span>
                       </div>
                     )}
                     {project.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] font-medium text-gray-500 bg-emerald-50/60 px-2 py-0.5 rounded border border-emerald-100"
+                        className="text-[11px] font-medium text-gray-500"
                       >
                         #{tag}
                       </span>

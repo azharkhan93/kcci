@@ -55,7 +55,7 @@ export const AboutLeadership: React.FC<AboutLeadershipProps> = ({
       {/* ── Section Header ── */}
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332]/10 text-[#1b4332] text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-2">
             <Users className="w-3.5 h-3.5" />
             <span>{badge}</span>
           </div>
@@ -74,9 +74,9 @@ export const AboutLeadership: React.FC<AboutLeadershipProps> = ({
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
+                  className={`px-3.5 py-1 text-xs font-bold transition-all duration-150 cursor-pointer whitespace-nowrap ${
                     selectedCategory === cat
-                      ? "bg-[#1b4332] text-white shadow-xs"
+                      ? "bg-[#1b4332] text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
@@ -119,7 +119,7 @@ export const AboutLeadership: React.FC<AboutLeadershipProps> = ({
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1b4332] bg-[#1b4332]/10 px-2.5 py-0.5 rounded-full border border-[#1b4332]/20 inline-block mb-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#2d6a4f] block mb-0.5">
                     {leader.category}
                   </span>
                   <h3 className="font-extrabold text-base text-gray-950 leading-snug group-hover:text-[#1b4332] transition-colors truncate">

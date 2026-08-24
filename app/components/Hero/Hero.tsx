@@ -28,25 +28,31 @@ export const Hero = ({
           className="object-cover object-[center_35%]"
         />
 
-       
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/5 pointer-events-none" />
+        {/* Minimal Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/50 pointer-events-none" />
         
-        {/* Subtle Radial Vignette for Center Text Legibility */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.65)_100%)] pointer-events-none" />
+        {/* Geometric Square Grid Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.12] pointer-events-none"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1px, transparent 1px)
+            `,
+            backgroundSize: "48px 48px",
+          }}
+        />
 
   
         <div className="absolute inset-0 z-10 flex items-center justify-center select-none">
-          <div className="max-w-5xl w-full mx-auto px-2 md:px-8 text-center flex flex-col items-center justify-center">
-            {/* Kicker Pill Badge */}
+          <div className="max-w-4xl w-full mx-auto px-4 md:px-8 text-center flex flex-col items-center justify-center">
            
-              
-              <span className="text-sm font-extrabold uppercase tracking-[0.25em] text-white">
-                {subtitle}
-              </span>
-           
+            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-white mb-3">
+              {subtitle}
+            </span>
 
             
-            <h1 className="text-white font-black text-3xl  md:text-6xl  uppercase tracking-tight leading-tight max-w-4xl drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+            <h1 className="text-white font-black text-5xl md:text-6xl uppercase tracking-tight leading-[1.1] w-full md:max-w-2xl">
               {title}
             </h1>
           </div>

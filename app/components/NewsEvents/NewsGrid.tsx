@@ -102,7 +102,7 @@ export const NewsGrid: React.FC<NewsGridProps> = ({
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#1b4332] bg-white/95 backdrop-blur-md px-2.5 py-0.5 rounded-full shadow-2xs border border-gray-200/60">
+                    <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#1b4332] bg-white/95 backdrop-blur-md px-2 py-0.5">
                       {article.category}
                     </span>
                   </div>

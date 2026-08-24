@@ -21,58 +21,58 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({ project }) => {
         <span>Back to All Research Projects</span>
       </Link>
 
-      {/* Badges Row */}
-      <div className="flex flex-wrap items-center gap-2.5 mb-4">
-        <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-emerald-50 text-[#2d6a4f] border border-emerald-200/80">
+      {/* Badges Row - Simple text format */}
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-4 text-xs font-semibold uppercase tracking-wider">
+        <span className="text-[#2d6a4f] font-bold">
           {project.category}
         </span>
-
-        <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-[#1b4332] border border-emerald-200/80">
+        <span className="text-gray-300">•</span>
+        <span className="text-gray-600 font-bold">
           {project.year}
         </span>
-
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-900 border border-amber-200">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+        <span className="text-gray-300">•</span>
+        <span className="inline-flex items-center gap-1.5 text-amber-700 font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
           {project.status} Project
         </span>
       </div>
 
       {/* Main Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-black text-gray-950 uppercase tracking-tight leading-tight mb-6 font-sans">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-black text-gray-950 uppercase tracking-tight leading-tight mb-6">
         {project.title}
       </h1>
 
-      {/* Metadata Strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-5 rounded-2xl bg-gray-50/80 border border-gray-200/70 text-xs text-gray-700">
-        <div className="flex items-center gap-2.5">
-          <Building2 className="w-4 h-4 text-[#2d6a4f] flex-shrink-0" />
-          <div>
-            <span className="block text-[10px] uppercase font-bold text-gray-600">Funding Agency</span>
-            <span className="font-bold text-gray-900 truncate block">{project.fundingAgency}</span>
+      {/* Metadata Strip - Clean layout with perfect alignment and no overlapping */}
+      <div className="py-5 my-6 border-y border-gray-100 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 text-xs text-gray-700">
+        <div className="flex items-start gap-2.5 min-w-0">
+          <Building2 className="w-4 h-4 text-[#2d6a4f] flex-shrink-0 mt-0.5" />
+          <div className="min-w-0 flex-1">
+            <span className="block text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-0.5">Funding Agency</span>
+            <span className="font-bold text-gray-900 leading-snug block break-words">{project.fundingAgency}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <Clock className="w-4 h-4 text-[#1b4332] flex-shrink-0" />
-          <div>
-            <span className="block text-[10px] uppercase font-bold text-gray-600">Timeline / Duration</span>
-            <span className="font-bold text-gray-900 truncate block">{project.duration}</span>
+        <div className="flex items-start gap-2.5 min-w-0">
+          <Clock className="w-4 h-4 text-[#1b4332] flex-shrink-0 mt-0.5" />
+          <div className="min-w-0 flex-1">
+            <span className="block text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-0.5">Timeline / Duration</span>
+            <span className="font-bold text-gray-900 leading-snug block break-words">{project.duration}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <MapPin className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-          <div>
-            <span className="block text-[10px] uppercase font-bold text-gray-600">Trial Location</span>
-            <span className="font-bold text-gray-900 truncate block">{project.location}</span>
+        <div className="flex items-start gap-2.5 min-w-0">
+          <MapPin className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+          <div className="min-w-0 flex-1">
+            <span className="block text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-0.5">Trial Location</span>
+            <span className="font-bold text-gray-900 leading-snug block break-words">{project.location}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5">
-          <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0" />
-          <div>
-            <span className="block text-[10px] uppercase font-bold text-gray-600">Lead Investigator</span>
-            <span className="font-bold text-gray-900 truncate block">{project.leadInvestigator}</span>
+        <div className="flex items-start gap-2.5 min-w-0">
+          <CheckCircle2 className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+          <div className="min-w-0 flex-1">
+            <span className="block text-[10px] uppercase font-bold text-gray-500 tracking-wider mb-0.5">Lead Investigator</span>
+            <span className="font-bold text-gray-900 leading-snug block break-words">{project.leadInvestigator}</span>
           </div>
         </div>
       </div>

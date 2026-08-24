@@ -48,16 +48,13 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
 
       {/* ── Content Container Aligned to Page Grid (max-w-7xl) ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 sm:py-16 md:py-20 flex flex-col items-start justify-center">
-        {/* Kicker / Category Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-50/90 border border-emerald-300/80 backdrop-blur-md mb-3 sm:mb-4 shadow-2xs">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-emerald-800">
-            {badge}
-          </span>
+        {/* Section Kicker - Simple text format */}
+        <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-3">
+          {badge}
         </div>
 
         {/* Main Headline */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-950 uppercase font-sans tracking-tight leading-snug mb-5 sm:mb-6 max-w-3xl drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-950 uppercase tracking-tight leading-snug mb-5 sm:mb-6 max-w-3xl drop-shadow-[0_1px_2px_rgba(255,255,255,0.8)]">
           {title}
         </h2>
 
@@ -93,7 +90,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
             </Button>
           )}
 
-          <div className="hidden sm:flex items-center gap-2 text-xs font-bold text-gray-700 bg-white/80 backdrop-blur-md px-4 py-3 rounded-full border border-gray-200/70 shadow-2xs">
+          <div className="hidden sm:flex items-center gap-2 text-xs font-semibold text-gray-700">
             <Sparkles className="w-3.5 h-3.5 text-[#d99b26] flex-shrink-0" />
             <span>Weekly Field Reports &amp; Publications</span>
           </div>

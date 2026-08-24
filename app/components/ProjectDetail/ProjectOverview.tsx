@@ -15,7 +15,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({ project }) => 
       <section className="space-y-3 sm:space-y-4">
         <div className="flex items-center gap-2">
           <FileText className="w-5 h-5 text-[#2d6a4f]" />
-          <h2 className="text-xl sm:text-2xl font-black text-gray-950 uppercase tracking-tight font-sans">
+          <h2 className="text-xl sm:text-2xl font-black text-gray-950 uppercase tracking-tight">
             Research Background &amp; Methodology
           </h2>
         </div>
@@ -25,7 +25,7 @@ export const ProjectOverview: React.FC<ProjectOverviewProps> = ({ project }) => 
       </section>
 
       {/* ── Objectives Checklist ── */}
-      <section className="space-y-4 p-5 sm:p-7 rounded-2xl bg-emerald-50/50 border border-emerald-200/70">
+      <section className="space-y-4 pt-6 border-t border-gray-100">
         <div className="flex items-center gap-2">
           <Target className="w-5 h-5 text-[#2d6a4f]" />
           <h3 className="text-lg sm:text-xl font-extrabold text-[#1b4332] uppercase tracking-tight">
