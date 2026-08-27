@@ -8,6 +8,7 @@ export interface ContactHeroProps {
   badge?: string;
   title?: string;
   subtitle?: string;
+  breadcrumbLabel?: string;
   className?: string;
 }
 
@@ -15,10 +16,11 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
   badge = "CONNECT WITH OUR LAB",
   title = "GET IN TOUCH WITH US",
   subtitle = "Have questions about our soil and GIS research, want to submit field samples, or explore academic and industry research partnerships? Our laboratory team is here to assist you.",
+  breadcrumbLabel = "Contact & Inquiries",
   className = "",
 }) => {
   return (
-    <section className={`relative w-full pt-8 pb-12 sm:pb-16 ${className}`}>
+    <section className={`relative w-full pt-8 pb-10 sm:pb-14 border-b border-slate-100 ${className}`}>
       {/* Background Decorative Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#1b4332_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
 
@@ -29,12 +31,12 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
-          <span className="text-[#1b4332] font-semibold">Contact & Inquiries</span>
+          <span className="text-[#1b4332] font-semibold">{breadcrumbLabel}</span>
         </nav>
 
         {/* Header Content */}
         <div className="max-w-3xl">
-          {/* Section Kicker - Simple text format */}
+          {/* Section Kicker */}
           <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-3">
             {badge}
           </div>

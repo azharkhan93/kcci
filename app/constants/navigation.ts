@@ -1,3 +1,20 @@
+export interface NavItem {
+  label: string;
+  href: string;
+  description?: string;
+}
+
+export const NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "/#hero", description: "Precision agriculture platform" },
+  { label: "Features", href: "/#features", description: "Smart technology & monitoring" },
+  { label: "Why Choose Us", href: "/#why-choose-us", description: "Farming at your fingertips" },
+  { label: "App Showcase", href: "/#app-gallery", description: "Intuitive interface in action" },
+  { label: "Testimonials", href: "/#testimonials", description: "Trusted by growers" },
+  { label: "Leadership", href: "/#team", description: "Scientific advisors & founders" },
+  { label: "Contact", href: "/contact", description: "Inquiries, demo & support" },
+];
+
+
 export interface NavLink {
   label: string;
   href: string;
@@ -58,17 +75,26 @@ export const RESEARCH_LINKS: NavLink[] = [
 
 
 export const LAB_CONTACT_INFO = {
-  title: "Soil Testing Laboratory",
-  email: "soilscience@skuastkashmir.ac.in",
-  organization: "SKUAST-K (Division of Soil Science)",
-  addressLines: [
-    "Shalimar Main Campus",
-    "Shalimar Road",
-    "Srinagar, J&K 190025",
+  title: "Farm2i Headquarters & Support",
+  email: "support@farm2i.com",
+  emails: [
+    "support@farm2i.com",
+    "farm2isolutions@gmail.com",
+    "admin@farmhealth.in",
   ],
-  phone: "Ph: 0194-2461271",
-  hoursTitle: "Lab Hours:",
-  hours: "Mon-Fri 9:00am - 5:00pm",
+  organization: "Farm2i Precision Agriculture",
+  address: "4/3 S. D Colony Batamaloo, Srinagar, J&K-190006",
+  addressLines: [
+    "4/3 S. D Colony Batamaloo",
+    "Srinagar, J&K-190006",
+  ],
+  phones: [
+    "+91 94038 90112",
+    "+91 9758083252",
+  ],
+  phone: "+91 94038 90112",
+  hoursTitle: "Support Hours:",
+  hours: "Mon-Sat 9:00am - 5:30pm IST",
 };
 
 export const SERVICES_LIST: ServiceItem[] = [

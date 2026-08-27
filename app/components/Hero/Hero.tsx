@@ -1,64 +1,77 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
+import { HERO_SLIDES, type HeroSlideData } from "@/app/constants/hero";
+import { useHeroCarousel } from "./useHeroCarousel";
+import { HeroNav } from "./HeroNav";
+import { HeroContent } from "./HeroContent";
+import { HeroShowcase } from "./HeroShowcase";
 
 export interface HeroProps {
-  subtitle?: string;
-  title?: string;
-  imageSrc?: string;
-  imageAlt?: string;
+  slides?: HeroSlideData[];
+  autoPlayInterval?: number;
 }
 
-export const Hero = ({
-  subtitle = "REMOTE SENSING & GIS",
-  title = "GIS SOIL SCIENCE LABORATORY",
-  imageSrc = "/hero-bg.jpg",
-  imageAlt = "GIS Soil Science Laboratory Research Station",
-}: HeroProps): React.ReactElement => {
+export const Hero: React.FC<HeroProps> = ({
+  slides = HERO_SLIDES,
+  autoPlayInterval = 5500,
+}) => {
+  const { currentIdx, goToSlide, handleNext, handlePrev, refs } =
+    useHeroCarousel({ totalSlides: slides.length, autoPlayInterval });
+
+  const {
+    containerRef,
+    title1Ref,
+    title2Ref,
+    descRef,
+    metricsRef,
+    actionsRef,
+    imageClipRef,
+    hudInfoRef,
+  } = refs;
+
+  const activeSlide = slides[currentIdx];
+
   return (
-    <section className="relative w-full overflow-hidden">
+    <section
+      id="hero"
+      ref={containerRef}
+      aria-label="GIS Laboratory Showcase Hero"
+      className="relative w-full min-h-[620px] md:h-[100dvh] md:max-h-[1080px] bg-white border-b border-slate-100 flex items-center justify-center overflow-hidden pt-18 sm:pt-20 md:pt-18 pb-8 md:pb-0 px-4 sm:px-6 lg:px-12"
+    >
+    
+      <HeroNav
+        slides={slides}
+        currentIdx={currentIdx}
+        onSelectSlide={goToSlide}
+      />
+
      
-      <div className="relative w-full h-[100dvh] min-h-[580px] md:h-[680px]">
-       
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_35%]"
-        />
+      <div className="relative w-full max-w-7xl mx-auto z-10 pl-2  md:pl-28 pr-12 md:pr-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+         
+          <div className="md:col-span-7 flex flex-col justify-center">
+            <HeroContent
+              slide={activeSlide}
+              title1Ref={title1Ref}
+              title2Ref={title2Ref}
+              descRef={descRef}
+              metricsRef={metricsRef}
+              actionsRef={actionsRef}
+            />
+          </div>
 
-        {/* Minimal Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/50 pointer-events-none" />
-        
-        {/* Geometric Square Grid Overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.12] pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1px, transparent 1px)
-            `,
-            backgroundSize: "48px 48px",
-          }}
-        />
-
-  
-        <div className="absolute inset-0 z-10 flex items-center justify-center select-none">
-          <div className="max-w-4xl w-full mx-auto px-4 md:px-8 text-center flex flex-col items-center justify-center">
-           
-            <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-white mb-3">
-              {subtitle}
-            </span>
-
-            
-            <h1 className="text-white font-black text-5xl md:text-6xl uppercase tracking-tight leading-[1.1] w-full md:max-w-2xl">
-              {title}
-            </h1>
+          
+          <div className="md:col-span-5 flex items-center justify-center">
+            <HeroShowcase
+              slide={activeSlide}
+              imageClipRef={imageClipRef}
+              hudInfoRef={hudInfoRef}
+              onPrev={handlePrev}
+              onNext={handleNext}
+            />
           </div>
         </div>
-
-        <div className="absolute bottom-0 inset-x-0 h-12 md:h-20 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
       </div>
     </section>
   );

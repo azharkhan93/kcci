@@ -1,25 +1,15 @@
 export * from "./Button";
 export * from "./Hero";
 export * from "./Navbar";
-export * from "./ResearchApproach";
-export * from "./LabGallery";
-export * from "./ResearchProjectsList";
-export * from "./ProjectDetail";
-
+export * from "./KeyBenefits";
+export * from "./AppGallery";
+export * from "./WhyChooseUs";
+export * from "./Testimonials";
+export * from "./TeamMembers";
 export * from "./AddressCard";
-export * from "./ServiceCard";
-
-
 export * from "./TeamSection";
-
-export * from "./ContentBlock";
-
-
 export * from "./CtaSection";
-
 export * from "./Input";
 export * from "./Select";
 export * from "./Contact";
 export * from "./Footer";
-export * from "./About";
-export * from "./NewsEvents";

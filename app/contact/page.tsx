@@ -11,38 +11,39 @@ import {
 
 export default function ContactPage() {
   return (
-    <main className="flex flex-col bg-white min-h-screen pt-20 sm:pt-24 md:pt-28">
-      {/* ── Contact Hero / Breadcrumbs ── */}
+    <main className="flex flex-col bg-white min-h-screen pt-24  md:pt-28">
+      
       <ContactHero
-        badge="CONNECT WITH OUR LAB"
+        badge="CONNECT WITH FARM2I"
         title="GET IN TOUCH WITH US"
-        subtitle="Have questions about our soil and GIS research, want to submit field samples, or explore academic and industry research partnerships? Our laboratory team is here to assist you."
+        subtitle="Have questions about our satellite mapping, soil testing, IoT sensors, or precision agriculture platform? Our team is here to assist you."
       />
 
-      {/* ── Content Container ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-16 space-y-12 sm:space-y-16">
-        {/* ── 1. Contact Information Cards ── */}
-        <section aria-label="Lab Contact Information">
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-10 md:py-16 space-y-12 md:space-y-16">
+       
+        <section aria-label="Contact Information">
           <ContactInfoCards />
         </section>
 
-        {/* ── 2. Direct Inquiry Form ── */}
-        <section aria-label="Send Inquiry">
-          <ContactForm />
-        </section>
+      
+        <section aria-label="Direct Inquiry Form and Office Location">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-stretch">
+           
+            <div className="md:col-span-7 flex">
+              <ContactForm className="w-full h-full" />
+            </div>
 
-        {/* ── 3. Interactive Map & Campus Directions ── */}
-        <section aria-label="Campus Location Map">
-          <ContactMap />
+            
+            <div className="md:col-span-5 flex">
+              <ContactMap className="w-full h-full" />
+            </div>
+          </div>
         </section>
       </div>
 
-      {/* ── Lab Updates CTA Section ── */}
-      <CtaSection
-        badge="STAY UPDATED"
-        title="FOLLOW OUR RESEARCH UPDATES"
-        buttonText="EXPLORE ALL POSTS"
-      />
+    
+      
     </main>
   );
 }
