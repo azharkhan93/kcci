@@ -23,9 +23,8 @@ export const HeroContent: React.FC<HeroContentProps> = ({
   metricsRef,
   actionsRef,
 }) => (
-  <div className="flex flex-col justify-center text-left z-10 space-y-6 max-w-xl md:pl-8 lg:pl-16">
-    {/* Elegant Editorial Headline */}
-    <h1 className="text-4xl sm:text-5xl lg:text-[3.65rem] font-medium text-slate-900 tracking-tight leading-[1.08]">
+  <div className="flex flex-col justify-center text-left z-10 space-y-6 max-w-xl pt-8 sm:pt-12 md:pt-0 md:pl-8 lg:pl-16">
+    <h1 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight leading-[1.08]">
       <div className="overflow-hidden py-0.5">
         <span
           ref={title1Ref}
@@ -52,8 +51,8 @@ export const HeroContent: React.FC<HeroContentProps> = ({
       {slide.shortDescription}
     </p>
 
-    {/* Minimal Pill Tags */}
-    <div ref={metricsRef} className="flex flex-wrap items-center gap-2.5 pt-1">
+    {/* Minimal Pill Tags (Hidden on smaller devices) */}
+    <div ref={metricsRef} className="hidden md:flex flex-wrap items-center gap-2.5 pt-1">
       {slide.tags.map((tag) => (
         <span
           key={tag}
@@ -64,7 +63,7 @@ export const HeroContent: React.FC<HeroContentProps> = ({
       ))}
     </div>
 
-    {/* Action CTA Button */}
+   
     <div ref={actionsRef} className="pt-2">
       <Link
         href={slide.primaryBtnHref}
