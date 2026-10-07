@@ -13,48 +13,45 @@ export interface ContactHeroProps {
 }
 
 export const ContactHero: React.FC<ContactHeroProps> = ({
-  badge = "CONNECT WITH OUR LAB",
+  badge = "CONNECT WITH FARM HEALTH INNOVATIONS",
   title = "GET IN TOUCH WITH US",
-  subtitle = "Have questions about our soil and GIS research, want to submit field samples, or explore academic and industry research partnerships? Our laboratory team is here to assist you.",
+  subtitle = "Have questions about NitroFIX™, product orders, orchard applications, bulk supplies, or commercial distribution? Our team is here to assist you.",
   breadcrumbLabel = "Contact & Inquiries",
   className = "",
 }) => {
   return (
     <section
-      className={`relative w-full pt-8 pb-10 sm:pb-14 border-b border-slate-100 ${className}`}
+      className={`relative w-full py-16 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-[#0c2419] text-white overflow-hidden ${className}`}
     >
-      {/* Background Decorative Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1b4332_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
+      {/* Ambient Molecular Glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Breadcrumb Navigation */}
-        <nav
-          className="flex items-center gap-1.5 text-xs font-medium text-gray-500 mb-6 sm:mb-8"
-          aria-label="Breadcrumb"
-        >
-          <Link href="/" className="hover:text-[#1b4332] transition-colors">
+        <div className="flex items-center gap-2 text-xs font-mono text-emerald-300/80 mb-6">
+          <Link href="/" className="hover:text-white transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
-          <span className="text-[#1b4332] font-semibold">
-            {breadcrumbLabel}
-          </span>
-        </nav>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+          <span className="text-white font-medium">{breadcrumbLabel}</span>
+        </div>
 
         {/* Header Content */}
-        <div className="max-w-3xl">
-          {/* Section Kicker */}
-          <div className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#2d6a4f] mb-3">
+        <div className="max-w-3xl space-y-4">
+          {/* Section Kicker Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-mono font-semibold uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {badge}
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 uppercase tracking-tight leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-space tracking-tight leading-[1.15] text-white uppercase">
             {title}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 font-work-sans leading-relaxed pt-1 max-w-2xl">
             {subtitle}
           </p>
         </div>
