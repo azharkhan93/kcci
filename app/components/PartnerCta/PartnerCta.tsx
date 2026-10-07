@@ -181,19 +181,27 @@ export const PartnerCta: React.FC<PartnerCtaProps> = ({ className = "" }) => {
           </div>
 
           {/* ── Action Buttons ── */}
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
-            <Link href={ctaHref || "/contact"}>
-              <Button variant="primary" size="md">
-                <span className="inline-flex items-center gap-2 whitespace-nowrap">
+          <div className="flex flex-row items-center gap-2.5 sm:gap-3 shrink-0 w-full sm:w-auto">
+            <Link href={ctaHref || "/contact"} className="flex-1 sm:flex-initial">
+              <Button
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto text-xs sm:text-base px-3.5 sm:px-7 py-2.5 sm:py-3.5"
+              >
+                <span className="inline-flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap">
                   <span>{ctaText}</span>
-                  <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </Button>
             </Link>
 
             {secondaryCtaText && secondaryCtaHref && (
-              <Link href={secondaryCtaHref}>
-                <Button variant="outline" size="md">
+              <Link href={secondaryCtaHref} className="flex-1 sm:flex-initial">
+                <Button
+                  variant="outline"
+                  size="md"
+                  className="w-full sm:w-auto text-xs sm:text-base px-3.5 sm:px-7 py-2.5 sm:py-3.5"
+                >
                   <span className="whitespace-nowrap">{secondaryCtaText}</span>
                 </Button>
               </Link>

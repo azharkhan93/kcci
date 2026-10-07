@@ -46,7 +46,7 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
           </div>
 
           {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-space tracking-tight leading-[1.15] text-white uppercase">
+          <h1 className="text-2xl  md:text-4xl font-bold font-space tracking-tight leading-[1.15] text-white uppercase">
             {title}
           </h1>
 

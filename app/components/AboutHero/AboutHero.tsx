@@ -40,7 +40,7 @@ export const AboutHero: React.FC<AboutHeroProps> = ({
             {content.eyebrow}
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-space tracking-tight leading-[1.15]">
+          <h1 className="text-2xl md:text-4xl font-bold font-space tracking-tight leading-[1.15]">
             <span>{content.headingPrefix}</span>
             <span className="bg-gradient-to-r from-emerald-400 via-emerald-300 to-teal-200 bg-clip-text text-transparent">
               {content.headingHighlight}

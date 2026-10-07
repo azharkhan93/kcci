@@ -25,15 +25,23 @@ export const HeroContent: React.FC = () => {
       </p>
 
      
-      <div className="flex flex-wrap items-center gap-3.5 pt-2">
-        <Link href={primaryCta?.href || "/nitrofix"}>
-          <Button variant="primary" size="md">
+      <div className="flex flex-row items-center gap-2.5 sm:gap-3.5 pt-2 w-full sm:w-auto">
+        <Link href={primaryCta?.href || "/nitrofix"} className="flex-1 sm:flex-initial">
+          <Button
+            variant="primary"
+            size="md"
+            className="w-full sm:w-auto text-xs sm:text-base px-3.5 sm:px-7 py-2.5 sm:py-3.5 whitespace-nowrap"
+          >
             {primaryCta?.label || "Discover NitroFIX"}
           </Button>
         </Link>
 
-        <Link href={secondaryCta?.href || "/contact"}>
-          <Button variant="outline" size="md">
+        <Link href={secondaryCta?.href || "/contact"} className="flex-1 sm:flex-initial">
+          <Button
+            variant="outline"
+            size="md"
+            className="w-full sm:w-auto text-xs sm:text-base px-3.5 sm:px-7 py-2.5 sm:py-3.5 whitespace-nowrap"
+          >
             {secondaryCta?.label || "Partner With Us"}
           </Button>
         </Link>

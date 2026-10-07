@@ -100,15 +100,23 @@ export const Hero: React.FC = () => {
           </p>
 
           {/* Standard Button Group with GSAP Reveal Ref */}
-          <div ref={actionsRef} className="flex flex-wrap items-center gap-3.5 pt-1">
-            <Link href={currentSlide.primaryCtaHref || "#"}>
-              <Button variant="primary" size="md">
+          <div ref={actionsRef} className="flex flex-row items-center gap-2.5 sm:gap-3.5 pt-1 w-full sm:w-auto">
+            <Link href={currentSlide.primaryCtaHref || "#"} className="flex-1 sm:flex-initial">
+              <Button
+                variant="primary"
+                size="md"
+                className="w-full sm:w-auto text-xs sm:text-base px-3.5 sm:px-7 py-2.5 sm:py-3.5 whitespace-nowrap"
+              >
                 {currentSlide.primaryCtaText}
               </Button>
             </Link>
 
-            <Link href={currentSlide.secondaryCtaHref || "/contact"}>
-              <Button variant="outline" size="md">
+            <Link href={currentSlide.secondaryCtaHref || "/contact"} className="flex-1 sm:flex-initial">
+              <Button
+                variant="outline"
+                size="md"
+                className="w-full sm:w-auto text-xs sm:text-base px-3.5 sm:px-7 py-2.5 sm:py-3.5 whitespace-nowrap"
+              >
                 {currentSlide.secondaryCtaText}
               </Button>
             </Link>
