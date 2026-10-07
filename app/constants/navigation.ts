@@ -1,18 +1,37 @@
+export interface NavChildItem {
+  label: string;
+  href: string;
+  badge?: string;
+  description?: string;
+}
+
 export interface NavItem {
   label: string;
   href: string;
   description?: string;
+  children?: NavChildItem[];
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/#hero", description: "Precision agriculture platform" },
-  { label: "Features", href: "/#features", description: "Smart technology & monitoring" },
-  { label: "Why Choose Us", href: "/#why-choose-us", description: "Farming at your fingertips" },
-  { label: "App Showcase", href: "/#app-gallery", description: "Intuitive interface in action" },
-  { label: "Testimonials", href: "/#testimonials", description: "Trusted by growers" },
-  { label: "Leadership", href: "/#team", description: "Scientific advisors & founders" },
-  { label: "Contact", href: "/contact", description: "Inquiries, demo & support" },
+  { label: "Home", href: "/", description: "Farm Health Innovations platform" },
+  {
+    label: "Products",
+    href: "/nitrofix",
+    description: "Proprietary inputs & innovations",
+    children: [
+      {
+        label: "NitroFIX™",
+        href: "/nitrofix",
+        badge: "Flagship",
+        description: "Circular biopolymer hydrogel & sustainable moisture matrix",
+      },
+    ],
+  },
+  { label: "About Us", href: "/about", description: "Who we are & our capabilities" },
+  { label: "Contact", href: "/contact", description: "Inquiries, wholesale & partnership" },
 ];
+
+
 
 
 export interface NavLink {
@@ -75,14 +94,13 @@ export const RESEARCH_LINKS: NavLink[] = [
 
 
 export const LAB_CONTACT_INFO = {
-  title: "Farm2i Headquarters & Support",
-  email: "support@farm2i.com",
+  title: "Farm Health Innovations Headquarters & Support",
+  email: "admin@farmhealth.in",
   emails: [
-    "support@farm2i.com",
-    "farm2isolutions@gmail.com",
     "admin@farmhealth.in",
+    "support@farm2i.com",
   ],
-  organization: "Farm2i Precision Agriculture",
+  organization: "Farm Health Innovations",
   address: "4/3 S. D Colony Batamaloo, Srinagar, J&K-190006",
   addressLines: [
     "4/3 S. D Colony Batamaloo",
@@ -94,7 +112,7 @@ export const LAB_CONTACT_INFO = {
   ],
   phone: "+91 94038 90112",
   hoursTitle: "Support Hours:",
-  hours: "Mon-Sat 9:00am - 5:30pm IST",
+  hours: "Mon – Sat: 9:00 AM – 5:30 PM IST",
 };
 
 export const SERVICES_LIST: ServiceItem[] = [

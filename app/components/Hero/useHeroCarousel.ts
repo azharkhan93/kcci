@@ -11,157 +11,256 @@ export interface UseHeroCarouselOptions {
 
 export function useHeroCarousel({
   totalSlides,
-  autoPlayInterval = 5500,
+  autoPlayInterval = 6500,
 }: UseHeroCarouselOptions) {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const currentIdxRef = useRef(0);
   const isAnimatingRef = useRef(false);
+  const isMountedRef = useRef(true);
+  const activeTimelineRef = useRef<gsap.core.Timeline | null>(null);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const title1Ref = useRef<HTMLSpanElement>(null);
-  const title2Ref = useRef<HTMLSpanElement>(null);
+  // Sync ref with state
+  currentIdxRef.current = currentIdx;
+
+  const containerRef = useRef<HTMLElement>(null);
+  const textContainerRef = useRef<HTMLDivElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
-  const metricsRef = useRef<HTMLDivElement>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
-  const imageClipRef = useRef<HTMLDivElement>(null);
-  const hudInfoRef = useRef<HTMLDivElement>(null);
+  const bgContainerRef = useRef<HTMLDivElement>(null);
 
-  
-  const isInView = useInView(containerRef, { threshold: 0.2 });
+  const isInView = useInView(containerRef, { threshold: 0.15 });
 
- 
+  // ── Elegant GSAP Slide Reveal Entrance (100% Sharp with clearProps) ──
+  const playEntranceReveal = useCallback(() => {
+    if (!isMountedRef.current || !textContainerRef.current) return;
+
+    // First ensure any previous filter/blur styles are completely cleared
+    if (actionsRef.current) {
+      actionsRef.current.style.filter = "none";
+    }
+    if (headlineRef.current) {
+      headlineRef.current.style.filter = "none";
+    }
+    if (descRef.current) {
+      descRef.current.style.filter = "none";
+    }
+
+    const targets = [
+      headlineRef.current,
+      descRef.current,
+      actionsRef.current,
+    ].filter(Boolean);
+
+    if (targets.length === 0) return;
+    gsap.killTweensOf(targets);
+
+    if (activeTimelineRef.current) {
+      activeTimelineRef.current.kill();
+    }
+
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out" },
+      onComplete: () => {
+        isAnimatingRef.current = false;
+        if (!isMountedRef.current) return;
+        const liveTargets = [
+          headlineRef.current,
+          descRef.current,
+          actionsRef.current,
+        ].filter(Boolean);
+        if (liveTargets.length > 0) {
+          gsap.set(liveTargets, {
+            clearProps: "transform,opacity,filter",
+          });
+        }
+      },
+    });
+
+    activeTimelineRef.current = tl;
+
+    // 1. Animate Headline (Smooth vertical rise & fade)
+    if (headlineRef.current) {
+      tl.fromTo(
+        headlineRef.current,
+        {
+          y: 28,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power4.out",
+        },
+        0,
+      );
+    }
+
+    // 2. Animate Description text (Staggered subtle rise)
+    if (descRef.current) {
+      tl.fromTo(
+        descRef.current,
+        {
+          y: 18,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.65,
+          ease: "power3.out",
+        },
+        0.1,
+      );
+    }
+
+    // 3. Animate CTA Buttons (Clean scale & slide-up with ZERO blur)
+    if (actionsRef.current) {
+      tl.fromTo(
+        actionsRef.current,
+        {
+          y: 16,
+          opacity: 0,
+          scale: 0.96,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.55,
+          ease: "back.out(1.4)",
+        },
+        0.18,
+      );
+    }
+  }, []);
+
+  // ── Smooth Slide Transition Orchestrator ──
   const goToSlide = useCallback(
     (newIndex: number) => {
-      if (isAnimatingRef.current || newIndex === currentIdx) return;
+      const activeIdx = currentIdxRef.current;
+      if (!isMountedRef.current || isAnimatingRef.current || newIndex === activeIdx) return;
       isAnimatingRef.current = true;
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          setCurrentIdx(newIndex);
-          isAnimatingRef.current = false;
-        },
-      });
+      const nextIdx = (newIndex + totalSlides) % totalSlides;
 
-      tl.to([title1Ref.current, title2Ref.current], {
-        yPercent: 110,
-        opacity: 0,
-        duration: 0.25,
-        stagger: 0.02,
-        ease: "power3.in",
-      }).to(
-        [descRef.current, metricsRef.current, actionsRef.current],
-        { y: 12, opacity: 0, duration: 0.2, stagger: 0.02, ease: "power2.in" },
-        "-=0.2",
-      );
+      const exitTargets = [
+        headlineRef.current,
+        descRef.current,
+        actionsRef.current,
+      ].filter(Boolean);
 
-      if (imageClipRef.current) {
-        tl.to(
-          imageClipRef.current,
-          { opacity: 0.2, scale: 0.96, duration: 0.28, ease: "power2.inOut" },
-          0,
-        );
+      if (activeTimelineRef.current) {
+        activeTimelineRef.current.kill();
       }
-      if (hudInfoRef.current) {
-        tl.to(
-          hudInfoRef.current,
-          { opacity: 0, y: 8, duration: 0.2, ease: "power2.in" },
-          0,
-        );
+
+      // Exit Timeline: Staggered clean fade out
+      if (exitTargets.length > 0) {
+        gsap.killTweensOf(exitTargets);
+        const exitTl = gsap.timeline({
+          onComplete: () => {
+            if (!isMountedRef.current) return;
+            setCurrentIdx(nextIdx);
+            currentIdxRef.current = nextIdx;
+            requestAnimationFrame(() => {
+              if (isMountedRef.current) {
+                playEntranceReveal();
+              }
+            });
+          },
+        });
+        activeTimelineRef.current = exitTl;
+        exitTl.to(exitTargets, {
+          y: -14,
+          opacity: 0,
+          duration: 0.22,
+          stagger: 0.03,
+          ease: "power2.in",
+        });
+      } else {
+        setCurrentIdx(nextIdx);
+        currentIdxRef.current = nextIdx;
+        isAnimatingRef.current = false;
       }
     },
-    [currentIdx],
+    [totalSlides, playEntranceReveal],
   );
 
   const handleNext = useCallback(
-    () => goToSlide((currentIdx + 1) % totalSlides),
-    [currentIdx, goToSlide, totalSlides],
+    () => goToSlide((currentIdxRef.current + 1) % totalSlides),
+    [goToSlide, totalSlides],
   );
+
   const handlePrev = useCallback(
-    () => goToSlide((currentIdx - 1 + totalSlides) % totalSlides),
-    [currentIdx, goToSlide, totalSlides],
+    () => goToSlide((currentIdxRef.current - 1 + totalSlides) % totalSlides),
+    [goToSlide, totalSlides],
   );
 
-  // Autoplay Loop: Pauses automatically when off-screen
-  useEffect(() => {
-    if (!isInView) return;
-    const timer = setInterval(handleNext, autoPlayInterval);
-    return () => clearInterval(timer);
-  }, [isInView, handleNext, autoPlayInterval]);
+  const togglePlay = useCallback(() => {
+    setIsPlaying((prev) => !prev);
+  }, []);
 
-  // Responsive GSAP Entrance Animation
+  // Initial Load / Viewport Entrance
   useEffect(() => {
+    isMountedRef.current = true;
     const ctx = gsap.context(() => {
-      const mm = gsap.matchMedia();
-
-      mm.add(
-        { isMobile: "(max-width: 768px)", isDesktop: "(min-width: 769px)" },
-        (context) => {
-          const { isMobile } = context.conditions as { isMobile: boolean };
-          const tl = gsap.timeline();
-
-          tl.fromTo(
-            [title1Ref.current, title2Ref.current],
-            { yPercent: 120, opacity: 0 },
-            {
-              yPercent: 0,
-              opacity: 1,
-              duration: isMobile ? 0.45 : 0.6,
-              stagger: 0.07,
-              ease: "power4.out",
-            },
-          )
-            .fromTo(
-              descRef.current,
-              { y: 14, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" },
-              "-=0.3",
-            )
-            .fromTo(
-              metricsRef.current,
-              { y: 12, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.35, ease: "power3.out" },
-              "-=0.25",
-            )
-            .fromTo(
-              actionsRef.current,
-              { y: 10, opacity: 0 },
-              { y: 0, opacity: 1, duration: 0.3, ease: "power3.out" },
-              "-=0.2",
-            );
-
-          if (imageClipRef.current) {
-            gsap.fromTo(
-              imageClipRef.current,
-              { scale: isMobile ? 1.04 : 1.06, opacity: 0 },
-              {
-                scale: 1,
-                opacity: 1,
-                duration: isMobile ? 0.5 : 0.65,
-                ease: "power3.out",
-              },
-            );
-          }
-        },
-      );
+      playEntranceReveal();
     }, containerRef);
 
-    return () => ctx.revert();
-  }, [currentIdx]);
+    return () => {
+      isMountedRef.current = false;
+      if (activeTimelineRef.current) {
+        activeTimelineRef.current.kill();
+      }
+      ctx.revert();
+    };
+  }, [playEntranceReveal]);
+
+  // Clean Autoplay Loop (Active only when visible in viewport and playing, without high-frequency render thrashing)
+  useEffect(() => {
+    if (!isInView || !isPlaying) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, autoPlayInterval);
+
+    return () => clearInterval(timer);
+  }, [isInView, isPlaying, handleNext, autoPlayInterval]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isInView) return;
+      if (e.key === "ArrowRight") {
+        handleNext();
+      } else if (e.key === "ArrowLeft") {
+        handlePrev();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isInView, handleNext, handlePrev]);
 
   return {
     currentIdx,
+    isPlaying,
+    progressPercent: 0,
     isInView,
     goToSlide,
     handleNext,
     handlePrev,
+    togglePlay,
+    setIsPlaying,
     refs: {
       containerRef,
-      title1Ref,
-      title2Ref,
+      textContainerRef,
+      headlineRef,
       descRef,
-      metricsRef,
       actionsRef,
-      imageClipRef,
-      hudInfoRef,
+      bgContainerRef,
     },
   };
 }

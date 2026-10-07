@@ -20,18 +20,25 @@ export const ContactHero: React.FC<ContactHeroProps> = ({
   className = "",
 }) => {
   return (
-    <section className={`relative w-full pt-8 pb-10 sm:pb-14 border-b border-slate-100 ${className}`}>
+    <section
+      className={`relative w-full pt-8 pb-10 sm:pb-14 border-b border-slate-100 ${className}`}
+    >
       {/* Background Decorative Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#1b4332_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-1.5 text-xs font-medium text-gray-500 mb-6 sm:mb-8" aria-label="Breadcrumb">
+        <nav
+          className="flex items-center gap-1.5 text-xs font-medium text-gray-500 mb-6 sm:mb-8"
+          aria-label="Breadcrumb"
+        >
           <Link href="/" className="hover:text-[#1b4332] transition-colors">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
-          <span className="text-[#1b4332] font-semibold">{breadcrumbLabel}</span>
+          <span className="text-[#1b4332] font-semibold">
+            {breadcrumbLabel}
+          </span>
         </nav>
 
         {/* Header Content */}

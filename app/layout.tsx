@@ -1,23 +1,32 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Space_Grotesk, Work_Sans } from "next/font/google";
 import { Navbar, Footer } from "@/app/components";
 import "./globals.css";
 
-const quicksand = Quicksand({
-  variable: "--font-quicksand",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  variable: "--font-work-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Farm2i | Precision Agriculture",
+  title: "Farm Health Innovations | NitroFIX™ Precision Agriculture",
   description:
-    "Farm2i — Explore the powerful capabilities of farm2i and discover how our technology transforms modern farming practices.",
+    "Farm Health Innovations is building practical agricultural solutions for a changing world — from trusted fertilizers and agrochemicals to new technologies designed around better water and nutrient management.",
   icons: {
-    icon: "/farm2i.svg",
-    shortcut: "/farm2i.svg",
-    apple: "/farm2i.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
 };
 
@@ -27,21 +36,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={quicksand.variable}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${workSans.variable}`}
+    >
       <head>
-        <link rel="icon" href="/farm2i.svg" type="image/svg+xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
       </head>
-      <body className={`${quicksand.className} antialiased`}>
+      <body className="antialiased">
         <Navbar />
         {children}
         <Footer />
@@ -49,3 +53,4 @@ export default function RootLayout({
     </html>
   );
 }
+

@@ -14,37 +14,49 @@ export function useCarousel({
   autoPlayInterval = 5000,
 }: UseCarouselOptions) {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const currentIdxRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const textContentRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef(false);
 
+  currentIdxRef.current = currentIdx;
+
   const isInView = useInView(containerRef, { threshold: 0.15 });
+
+  const triggerTextReveal = useCallback(() => {
+    if (textContentRef.current) {
+      gsap.killTweensOf(textContentRef.current);
+      gsap.fromTo(
+        textContentRef.current,
+        { opacity: 0.2, y: 10 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }
+      );
+    }
+  }, []);
 
   const goToIndex = useCallback(
     (newIdx: number) => {
-      if (newIdx === currentIdx) return;
+      if (newIdx === currentIdxRef.current) return;
       setCurrentIdx(newIdx);
-
-      if (textContentRef.current) {
-        gsap.fromTo(
-          textContentRef.current,
-          { opacity: 0.2, y: 10 },
-          { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }
-        );
-      }
+      currentIdxRef.current = newIdx;
+      triggerTextReveal();
     },
-    [currentIdx]
+    [triggerTextReveal]
   );
 
-  const handleNext = useCallback(
-    () => goToIndex((currentIdx + 1) % totalItems),
-    [currentIdx, goToIndex, totalItems]
-  );
+  const handleNext = useCallback(() => {
+    const nextIdx = (currentIdxRef.current + 1) % totalItems;
+    setCurrentIdx(nextIdx);
+    currentIdxRef.current = nextIdx;
+    triggerTextReveal();
+  }, [totalItems, triggerTextReveal]);
 
-  const handlePrev = useCallback(
-    () => goToIndex((currentIdx - 1 + totalItems) % totalItems),
-    [currentIdx, goToIndex, totalItems]
-  );
+  const handlePrev = useCallback(() => {
+    const prevIdx = (currentIdxRef.current - 1 + totalItems) % totalItems;
+    setCurrentIdx(prevIdx);
+    currentIdxRef.current = prevIdx;
+    triggerTextReveal();
+  }, [totalItems, triggerTextReveal]);
 
   // Autoplay Loop (Active only when visible in viewport and not paused)
   useEffect(() => {

@@ -1,21 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-quicksand, "Quicksand"), system-ui, sans-serif;
-  --font-quicksand: var(--font-quicksand, "Quicksand"), system-ui, sans-serif;
+  --color-nitrofix-green-deep: #124413;
+  --color-nitrofix-green-leaf: #2D6A1D;
+  --color-nitrofix-green-lime: #66A107;
+  --color-nitrofix-orange-vivid: #EA7202;
+  --color-nitrofix-orange-amber: #FFA90E;
+  --color-nitrofix-water-blue: #00A0E1;
+  --color-nitrofix-earth-brown: #44260A;
+
+  --color-primary: #124413;
+  --color-primary-dark: #081c15;
+  --color-primary-light: #2D6A1D;
+  --color-secondary: #EA7202;
+  --color-secondary-hover: #FFA90E;
+
+  --font-sans: var(--font-space-grotesk), var(--font-work-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-space-grotesk: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  --font-cantarell: 'Cantarell', sans-serif;
+  --font-exo: 'Exo 2', sans-serif;
+  --font-michroma: 'Michroma', monospace;
+  --font-titillium: 'Titillium Web', sans-serif;
+  --font-cabin: 'Cabin', sans-serif;
+  --font-work-sans: var(--font-work-sans), 'Work Sans', sans-serif;
+  --font-quicksand: 'Quicksand', system-ui, sans-serif;
 }
 
 :root {
-  --color-primary: #1b4332;
+  /* NitroFIX Brand Color Palette */
+  --nitrofix-green-deep:   #124413;
+  --nitrofix-green-leaf:   #2D6A1D;
+  --nitrofix-green-lime:   #66A107;
+  --nitrofix-orange-vivid: #EA7202;
+  --nitrofix-orange-amber: #FFA90E;
+  --nitrofix-water-blue:   #00A0E1;
+  --nitrofix-earth-brown:  #44260A;
+
+  /* Global Theme Colors */
+  --color-primary: #124413;
   --color-primary-dark: #081c15;
-  --color-primary-light: #2d6a4f;
-  --color-secondary: #d99b26;
-  --color-secondary-hover: #c48a1f;
-  --gradient-emerald-forest: linear-gradient(135deg, #059669 0%, #1b4332 100%);
-  --gradient-forest: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
-  --gradient-emerald-glow: linear-gradient(135deg, #10b981 0%, #059669 50%, #1b4332 100%);
-  --font-family-quicksand: "Quicksand", system-ui, sans-serif;
+  --color-primary-light: #2D6A1D;
+  --color-secondary: #EA7202;
+  --color-secondary-hover: #FFA90E;
+
+  /* Button Brand Gradients */
+  --gradient-btn-primary: linear-gradient(135deg, #2D6A1D 0%, #124413 100%);
+  --gradient-btn-primary-hover: linear-gradient(135deg, #66A107 0%, #2D6A1D 55%, #124413 100%);
+  --gradient-btn-secondary: linear-gradient(135deg, #FFA90E 0%, #EA7202 100%);
+  --gradient-btn-secondary-hover: linear-gradient(135deg, #FFB833 0%, #FFA90E 50%, #EA7202 100%);
+  --gradient-btn-hydro: linear-gradient(135deg, #00A0E1 0%, #2D6A1D 100%);
+  --gradient-nitrofix-fusion: linear-gradient(135deg, #66A107 0%, #2D6A1D 45%, #EA7202 100%);
+
+  --gradient-emerald-forest: linear-gradient(135deg, #059669 0%, #124413 100%);
+  --gradient-forest: linear-gradient(135deg, #124413 0%, #2D6A1D 50%, #66A107 100%);
+  --gradient-emerald-glow: linear-gradient(135deg, #66A107 0%, #2D6A1D 50%, #124413 100%);
+  
+  --font-family-sans: var(--font-space-grotesk), var(--font-work-sans), system-ui, sans-serif;
+  --font-family-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-family-tech: 'Exo 2', 'Titillium Web', sans-serif;
+  --font-family-mono: 'Michroma', monospace;
 }
 
 *,
@@ -36,14 +80,15 @@ a,
 li,
 div,
 .font-body {
-  font-family: var(--font-quicksand, 'Quicksand'), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-space-grotesk), var(--font-work-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* ── Headings ── */
 h1,
 h2,
 .font-heading {
-  font-family: var(--font-quicksand, 'Quicksand'), system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 /* ── Subheadings & Section Kickers ── */
@@ -52,11 +97,39 @@ h4,
 h5,
 h6,
 .font-subheading {
-  font-family: var(--font-quicksand, 'Quicksand'), system-ui, sans-serif;
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+.font-space {
+  font-family: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+}
+
+.font-cantarell {
+  font-family: 'Cantarell', sans-serif;
+}
+
+.font-exo {
+  font-family: 'Exo 2', sans-serif;
+}
+
+.font-michroma {
+  font-family: 'Michroma', monospace;
+}
+
+.font-titillium {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.font-cabin {
+  font-family: 'Cabin', sans-serif;
+}
+
+.font-work-sans {
+  font-family: var(--font-work-sans), 'Work Sans', sans-serif;
 }
 
 .font-quicksand {
-  font-family: var(--font-quicksand, 'Quicksand'), system-ui, sans-serif;
+  font-family: 'Quicksand', system-ui, sans-serif;
 }
 
 html {
@@ -72,33 +145,40 @@ body {
 }
 
 /* ── Button Variant Classes ─────────────────────────────── */
+/* ── Button Variant Classes ─────────────────────────────── */
 .btn-primary {
-  background-color: #1b4332;
+  background: linear-gradient(135deg, var(--nitrofix-green-leaf) 0%, var(--nitrofix-green-deep) 100%);
   color: #ffffff;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(18, 68, 19, 0.35);
 }
 .btn-primary:hover {
-  background-color: #081c15;
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 55%, var(--nitrofix-green-deep) 100%);
+  box-shadow: 0 6px 20px rgba(45, 106, 29, 0.45);
 }
 
 .btn-secondary {
-  background-color: #d99b26;
+  background: linear-gradient(135deg, var(--nitrofix-orange-amber) 0%, var(--nitrofix-orange-vivid) 100%);
   color: #ffffff;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(234, 114, 2, 0.35);
 }
 .btn-secondary:hover {
-  background-color: #c48a1f;
+  background: linear-gradient(135deg, #FFB833 0%, var(--nitrofix-orange-amber) 50%, var(--nitrofix-orange-vivid) 100%);
+  box-shadow: 0 6px 20px rgba(234, 114, 2, 0.45);
 }
 
 .btn-outline {
   background-color: #ffffff;
-  color: #1b4332;
-  border: 2px solid #d99b26;
+  color: var(--nitrofix-green-deep);
+  border: 1.5px solid var(--nitrofix-green-leaf);
   font-weight: 700;
 }
 .btn-outline:hover {
-  background-color: #d99b26;
+  background: linear-gradient(135deg, var(--nitrofix-green-leaf) 0%, var(--nitrofix-green-deep) 100%);
   color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 14px rgba(18, 68, 19, 0.25);
 }
 
 .btn-ghost {
@@ -108,7 +188,7 @@ body {
 }
 .btn-ghost:hover {
   background-color: #ecfdf5;
-  color: #1b4332;
+  color: var(--nitrofix-green-deep);
 }
 
 .btn-danger {
@@ -140,23 +220,76 @@ body {
   gap: 12px;
 }
 
-/* ── Emerald & Forest Green Gradients ─────────────────────── */
+/* ── NitroFIX & Emerald Gradients ─────────────────────────── */
+.bg-nitrofix-leaf-deep {
+  background: linear-gradient(135deg, var(--nitrofix-green-leaf) 0%, var(--nitrofix-green-deep) 100%);
+}
+.bg-nitrofix-lime-leaf {
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 100%);
+}
+.bg-nitrofix-orange-amber {
+  background: linear-gradient(135deg, var(--nitrofix-orange-amber) 0%, var(--nitrofix-orange-vivid) 100%);
+}
+.bg-nitrofix-water-leaf {
+  background: linear-gradient(135deg, var(--nitrofix-water-blue) 0%, var(--nitrofix-green-leaf) 100%);
+}
+.bg-nitrofix-fusion {
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 45%, var(--nitrofix-orange-vivid) 100%);
+}
+
 .bg-emerald-forest {
-  background: linear-gradient(135deg, #059669 0%, #1b4332 100%);
+  background: linear-gradient(135deg, #059669 0%, #124413 100%);
 }
 
 .bg-forest-gradient {
-  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+  background: linear-gradient(135deg, var(--nitrofix-green-deep) 0%, var(--nitrofix-green-leaf) 50%, var(--nitrofix-green-lime) 100%);
 }
 
 .bg-emerald-glow {
-  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #1b4332 100%);
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 50%, var(--nitrofix-green-deep) 100%);
+}
+
+.text-gradient-nitrofix {
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-orange-vivid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, var(--nitrofix-orange-amber) 0%, var(--nitrofix-orange-vivid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-leaf {
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 60%, var(--nitrofix-green-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-emerald-forest {
-  background: linear-gradient(135deg, #10b981 0%, #1b4332 100%);
+  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-deep) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* ── NitroFIX Badges & Chips ── */
+.badge-nitrofix {
+  background: rgba(45, 106, 29, 0.12);
+  color: var(--nitrofix-green-deep);
+  border: 1px solid rgba(45, 106, 29, 0.25);
+}
+
+.badge-nitrofix-orange {
+  background: rgba(234, 114, 2, 0.12);
+  color: var(--nitrofix-orange-vivid);
+  border: 1px solid rgba(234, 114, 2, 0.25);
+}
+
+.badge-nitrofix-blue {
+  background: rgba(0, 160, 225, 0.12);
+  color: var(--nitrofix-water-blue);
+  border: 1px solid rgba(0, 160, 225, 0.25);
 }
 
 /* ── Custom Scrollbar ────────────────────────────────────── */
@@ -188,4 +321,3 @@ body {
   -ms-overflow-style: none !important; /* IE and Edge */
   scrollbar-width: none !important; /* Firefox */
 }
-

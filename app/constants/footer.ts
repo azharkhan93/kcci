@@ -1,8 +1,14 @@
-import { Layers, Sparkles, Mail, type LucideIcon } from "lucide-react";
+import {
+  Cpu,
+  Sparkles,
+  Mail,
+  type LucideIcon,
+} from "lucide-react";
 
 export interface FooterLink {
   label: string;
   href: string;
+  badge?: string;
 }
 
 export interface FooterColumn {
@@ -11,53 +17,51 @@ export interface FooterColumn {
   links: FooterLink[];
 }
 
-export const FOOTER_BRAND = {
-  name: "Farm2i",
-  kicker: "Precision Agriculture & GIS",
-  description:
-    "Empowering farmers, researchers, and enterprises with high-resolution satellite field monitoring, IoT soil telemetry, and data-driven agricultural intelligence.",
-  statusText: "Farm2i Cloud & Sensors Active",
-};
-
-export const FOOTER_COLUMNS: FooterColumn[] = [
-  {
-    title: "Solutions & Features",
-    icon: Layers,
+export const FOOTER_DATA = {
+  brand: {
+    name: "Farm Health Innovations",
+    description:
+      "Farm Health Innovations supplies high-performing crop inputs today while developing smarter, sustainable technologies for tomorrow — from trusted agrochemicals to circular biopolymer hydrogels.",
+  },
+  solutionsColumn: {
+    title: "Technology & Products",
+    icon: Cpu,
     links: [
-      { label: "High-Res Satellite Imagery", href: "/#features" },
-      { label: "Satellite Field Monitoring", href: "/#features" },
-      { label: "Soil & Leaf Testing", href: "/#features" },
-      { label: "Smart Sensor Integration", href: "/#features" },
-      { label: "App Screenshot Gallery", href: "/#app-gallery" },
+      { label: "NitroFIX™ Biopolymer Matrix", href: "/nitrofix", badge: "Core" },
+      { label: "Flagship Innovation Overview", href: "/#nitrofix-feature" },
+      { label: "Water & Nutrient Efficiency", href: "/#nitrofix-benefits" },
+      { label: "Circular Biomass Upcycling", href: "/#orchard-process" },
+      { label: "Target Application Domains", href: "/nitrofix" },
     ],
   },
-  {
-    title: "Platform & Company",
+  companyColumn: {
+    title: "Ecosystem & Platform",
     icon: Sparkles,
     links: [
-      { label: "Why Choose Farm2i", href: "/#why-choose-us" },
-      { label: "Leadership Team", href: "/#team" },
-      { label: "Client Testimonials", href: "/#testimonials" },
-      { label: "Download Mobile App", href: "/#cta-section" },
-      { label: "Contact & Helpdesk", href: "/contact" },
+      { label: "About Us & Vision", href: "/about" },
+      { label: "Core Agricultural Advantages", href: "/about" },
+      { label: "Verified Quality Standards", href: "/about" },
+      { label: "Enterprise & Partner Inquiry", href: "/contact" },
+      { label: "Technical Support & Inquiries", href: "/contact" },
     ],
   },
-];
-
-export const FOOTER_CONTACT = {
-  title: "Contact & Inquiries",
-  icon: Mail,
-  address: "4/3 S. D Colony Batamaloo, Srinagar, J&K-190006",
-  emails: [
-    "support@farm2i.com",
-    "farm2isolutions@gmail.com",
-    "admin@farmhealth.in",
+  contact: {
+    title: "Direct Inquiries & Headquarters",
+    icon: Mail,
+    address: "4/3 S. D Colony Batamaloo, Srinagar, J&K-190006",
+    emails: [
+      { label: "admin@farmhealth.in", href: "mailto:admin@farmhealth.in" },
+      { label: "support@farm2i.com", href: "mailto:support@farm2i.com" },
+    ],
+    phones: [
+      { label: "+91 94038 90112", href: "tel:+919403890112" },
+      { label: "+91 9758083252", href: "tel:+919758083252" },
+    ],
+    hours: "Mon – Sat: 9:00 AM – 5:30 PM IST",
+  },
+  legal: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Security & Compliance", href: "/terms" },
   ],
-  phones: [
-    { label: "+91 94038 90112", href: "tel:+919403890112" },
-    { label: "+91 9758083252", href: "tel:+919758083252" },
-  ],
-  hours: "Mon – Sat: 9:00 AM – 5:30 PM IST",
-  ctaText: "Request Inquiries",
-  ctaHref: "/contact",
 };

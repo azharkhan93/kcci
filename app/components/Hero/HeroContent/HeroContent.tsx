@@ -2,76 +2,42 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { type HeroSlideData } from "@/app/constants/hero";
+import { Button } from "@/app/components/Button";
+import { HERO_DATA } from "@/app/constants/hero";
 
-export interface HeroContentProps {
-  slide: HeroSlideData;
-  categoryRef?: React.RefObject<HTMLDivElement | null>;
-  title1Ref: React.RefObject<HTMLSpanElement | null>;
-  title2Ref: React.RefObject<HTMLSpanElement | null>;
-  descRef: React.RefObject<HTMLParagraphElement | null>;
-  metricsRef: React.RefObject<HTMLDivElement | null>;
-  actionsRef: React.RefObject<HTMLDivElement | null>;
-}
+export const HeroContent: React.FC = () => {
+  const { headlinePrefix, headlineHighlight, supportingText, primaryCta, secondaryCta } =
+    HERO_DATA;
 
-export const HeroContent: React.FC<HeroContentProps> = ({
-  slide,
-  title1Ref,
-  title2Ref,
-  descRef,
-  metricsRef,
-  actionsRef,
-}) => (
-  <div className="flex flex-col justify-center text-left z-10 space-y-6 max-w-xl pt-8 sm:pt-12 md:pt-0 md:pl-8 lg:pl-16">
-    <h1 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight leading-[1.08]">
-      <div className="overflow-hidden py-0.5">
-        <span
-          ref={title1Ref}
-          className="inline-block transform-gpu font-normal text-slate-900"
-        >
-          {slide.titleLines[0]}
+  return (
+    <div className="flex flex-col justify-center text-left z-10 space-y-6 sm:space-y-8 max-w-2xl py-4 sm:py-6">
+    
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.65rem] font-medium text-slate-900 tracking-tight leading-[1.18] font-space max-w-xl">
+        <span>{headlinePrefix}</span>
+        <span className="text-gradient-leaf font-bold">
+          {headlineHighlight}
         </span>
+      </h1>
+
+    
+      <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-normal max-w-lg font-work-sans">
+        {supportingText}
+      </p>
+
+     
+      <div className="flex flex-wrap items-center gap-3.5 pt-2">
+        <Link href={primaryCta?.href || "/nitrofix"}>
+          <Button variant="primary" size="md">
+            {primaryCta?.label || "Discover NitroFIX"}
+          </Button>
+        </Link>
+
+        <Link href={secondaryCta?.href || "/contact"}>
+          <Button variant="outline" size="md">
+            {secondaryCta?.label || "Partner With Us"}
+          </Button>
+        </Link>
       </div>
-      <div className="overflow-hidden py-0.5">
-        <span
-          ref={title2Ref}
-          className="inline-block text-[#1b4332] transform-gpu font-semibold"
-        >
-          {slide.titleLines[1]}
-        </span>
-      </div>
-    </h1>
-
-    {/* Description Paragraph */}
-    <p
-      ref={descRef}
-      className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg font-normal"
-    >
-      {slide.shortDescription}
-    </p>
-
-    {/* Minimal Pill Tags (Hidden on smaller devices) */}
-    <div ref={metricsRef} className="hidden md:flex flex-wrap items-center gap-2.5 pt-1">
-      {slide.tags.map((tag) => (
-        <span
-          key={tag}
-          className="px-4 py-1.5 rounded-full bg-white/90 border border-slate-300/80 text-xs font-medium text-slate-700 shadow-2xs hover:border-[#1b4332] hover:text-[#1b4332] transition-colors"
-        >
-          {tag}
-        </span>
-      ))}
     </div>
-
-   
-    <div ref={actionsRef} className="pt-2">
-      <Link
-        href={slide.primaryBtnHref}
-        className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#1b4332] hover:bg-[#081c15] text-white text-xs sm:text-sm font-bold tracking-wide shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] group"
-      >
-        <span>{slide.primaryBtnText}</span>
-        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-      </Link>
-    </div>
-  </div>
-);
+  );
+};
