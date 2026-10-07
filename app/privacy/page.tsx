@@ -8,7 +8,7 @@ import { PRIVACY_DATA } from "@/app/constants/privacy";
 
 export default function PrivacyPage() {
   return (
-    <main className="flex flex-col bg-white min-h-screen pt-20 sm:pt-24 md:pt-28 pb-16">
+    <main className="min-h-screen bg-white text-slate-900">
       <ContactHero
         badge="DATA PROTECTION & PRIVACY"
         title="PRIVACY POLICY"
@@ -74,7 +74,7 @@ export default function PrivacyPage() {
                 </div>
               )}
 
-              {/* Bullets if any */}
+              
               {section.bullets && (
                 <ul className="space-y-2.5 pt-1">
                   {section.bullets.map((bullet, bIdx) => (

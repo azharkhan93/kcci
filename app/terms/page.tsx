@@ -13,10 +13,10 @@ import { TERMS_DATA } from "@/app/constants/terms";
 
 export default function TermsPage() {
   return (
-    <main className="flex flex-col bg-white min-h-screen pt-20 sm:pt-24 md:pt-28 pb-16">
+    <main className="min-h-screen bg-white text-slate-900">
   
       <ContactHero
-        badge="FARM2I LEGAL & POLICIES"
+        badge="FARM HEALTH INNOVATIONS LEGAL & POLICIES"
         title="TERMS AND CONDITIONS"
         subtitle={TERMS_DATA.intro}
         breadcrumbLabel="Terms & Conditions"
