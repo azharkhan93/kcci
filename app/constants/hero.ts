@@ -182,9 +182,9 @@ export const HERO_BG_SLIDES: HeroBackgroundSlide[] = [
     imageSrc: "/hero/autum1.webp",
     imageAlt:
       "Kashmir autumn Shikara and Chinar canal reflecting regional heritage and commerce",
-    primaryCtaText: "Explore Industries",
+    primaryCtaText: "Industries",
     primaryCtaHref: "/#key-sectors",
-    secondaryCtaText: "Connect With Us",
+    secondaryCtaText: "Contact",
     secondaryCtaHref: "/contact",
     tag: "Est. 1924",
   },
@@ -197,9 +197,9 @@ export const HERO_BG_SLIDES: HeroBackgroundSlide[] = [
     imageSrc: "/hero/img6.jpg",
     imageAlt:
       "Kashmir autumn Mughal garden waterfall surrounded by vibrant Chinar foliage",
-    primaryCtaText: "Explore Industries",
+    primaryCtaText: "Sectors",
     primaryCtaHref: "/#key-sectors",
-    secondaryCtaText: "About KCCI",
+    secondaryCtaText: "About Us",
     secondaryCtaHref: "/about",
     tag: "Key Sectors",
   },
@@ -212,9 +212,9 @@ export const HERO_BG_SLIDES: HeroBackgroundSlide[] = [
     imageSrc: "/hero/img3.jpeg",
     imageAlt:
       "The Kashmir Chamber of Commerce and Industry MoU signing ceremony at SKICC Srinagar",
-    primaryCtaText: "Latest News",
+    primaryCtaText: "News",
     primaryCtaHref: "/#latest-news",
-    secondaryCtaText: "Connect With Us",
+    secondaryCtaText: "Contact",
     secondaryCtaHref: "/contact",
     tag: "KCCI Initiatives",
   },
@@ -227,11 +227,11 @@ export const HERO_DATA = {
   supportingText:
     "Constituted in 1924 by prominent businessmen of Kashmir, advancing regional trade, crafts, and enterprise for over a century.",
   primaryCta: {
-    label: "Explore Industries",
+    label: "Industries",
     href: "/#key-sectors",
   },
   secondaryCta: {
-    label: "Connect With Us",
+    label: "Contact",
     href: "/contact",
   },
   slides: HERO_BG_SLIDES,

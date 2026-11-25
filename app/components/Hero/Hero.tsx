@@ -191,9 +191,9 @@ export const Hero: React.FC = () => {
               className="flex-1 min-w-0 sm:flex-initial"
             >
               <Button
-                variant="outline"
+                variant="primary"
                 size="sm"
-                className="w-full sm:w-auto text-[11px] sm:text-sm px-2.5 sm:px-5 py-2 sm:py-3 whitespace-nowrap !rounded-lg sm:!rounded-xl !bg-white/[0.07] hover:!bg-white/[0.15] !text-[#FBF7F2] !border !border-[#FFD37C]/30 hover:!border-[#FFD37C]/70 backdrop-blur-md !shadow-none !font-semibold"
+                className="w-full sm:w-auto text-[11px] sm:text-sm px-2.5 sm:px-5 py-2 sm:py-3 whitespace-nowrap !rounded-lg sm:!rounded-xl"
               >
                 {currentSlide.secondaryCtaText}
               </Button>
