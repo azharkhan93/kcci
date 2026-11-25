@@ -3,6 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import {
+  ChinarLeafSvg,
+  KhatambandPatternOverlay,
+  KashmirPaisleySvg,
+} from "@/app/components/KashmirMotifs";
 
 export interface ContactHeroProps {
   badge?: string;
@@ -13,45 +18,44 @@ export interface ContactHeroProps {
 }
 
 export const ContactHero: React.FC<ContactHeroProps> = ({
-  badge = "CONNECT WITH FARM HEALTH INNOVATIONS",
+  // badge = "THE KASHMIR CHAMBER OF COMMERCE & INDUSTRY",
   title = "GET IN TOUCH WITH US",
-  subtitle = "Have questions about NitroFIX™, product orders, orchard applications, bulk supplies, or commercial distribution? Our team is here to assist you.",
+  subtitle = "Have questions regarding trade facilitation, Certificate of Origin issuance, visa recommendation letters, membership, or general chamber inquiries? Our secretariat is here to assist you.",
   breadcrumbLabel = "Contact & Inquiries",
   className = "",
 }) => {
   return (
     <section
-      className={`relative w-full py-16 md:py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-[#0c2419] text-white overflow-hidden ${className}`}
+      className={`relative w-full py-16 md:py-20 bg-gradient-to-b from-[#2B1203] via-[#4A1E05] to-[#6E2C00] text-[#FBF7F2] overflow-hidden ${className}`}
     >
-      {/* Ambient Molecular Glows */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+      <KhatambandPatternOverlay className="opacity-[0.06] text-[#FFD37C]" />
+      <KashmirPaisleySvg className="absolute right-6 sm:right-16 top-1/2 -translate-y-1/2 w-36 sm:w-48 h-auto text-[#FFD37C]/14 pointer-events-none select-none rotate-12" />
+
+      {/* Warm Harud Amber & Chinar Glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#BB5D0E]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#FFD37C]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs font-mono text-emerald-300/80 mb-6">
+        <div className="flex items-center gap-2 text-xs font-mono text-[#FFD37C]/85 mb-6">
           <Link href="/" className="hover:text-white transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-          <span className="text-white font-medium">{breadcrumbLabel}</span>
+          <ChevronRight className="w-3.5 h-3.5 text-[#FFD37C]/40" />
+          <p className="text-white font-medium inline">{breadcrumbLabel}</p>
         </div>
 
         {/* Header Content */}
         <div className="max-w-3xl space-y-4">
-          {/* Section Kicker Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs font-mono font-semibold uppercase tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            {badge}
-          </div>
+        
 
           {/* Main Title */}
-          <h1 className="text-2xl  md:text-4xl font-bold font-space tracking-tight leading-[1.15] text-white uppercase">
+          <h1 className="text-2xl md:text-4xl font-bold font-space tracking-tight leading-[1.15] text-white uppercase">
             {title}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-slate-300 font-work-sans leading-relaxed pt-1 max-w-2xl">
+          <p className="text-base sm:text-lg text-[#FBF7F2]/80 font-work-sans leading-relaxed pt-1 max-w-2xl">
             {subtitle}
           </p>
         </div>

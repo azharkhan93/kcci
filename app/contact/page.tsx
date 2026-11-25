@@ -6,16 +6,15 @@ import {
   ContactInfoCards,
   ContactForm,
   ContactMap,
- 
 } from "@/app/components";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen bg-[#FBF7F2] text-[#2B1203]">
       <ContactHero
-        badge="CONNECT WITH FARM HEALTH INNOVATIONS"
+        badge="THE KASHMIR CHAMBER OF COMMERCE & INDUSTRY"
         title="GET IN TOUCH WITH US"
-        subtitle="Have questions about NitroFIX™, product orders, orchard applications, bulk supplies, or commercial distribution? Our team is here to assist you."
+        subtitle="Have questions regarding trade facilitation, Certificate of Origin issuance, visa recommendation letters, membership, or general chamber inquiries? Our secretariat is here to assist you."
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-12 md:space-y-14">

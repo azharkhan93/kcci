@@ -1,34 +1,78 @@
-export interface NavChildItem {
+export interface NavSubItem {
   label: string;
   href: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
   badge?: string;
-  description?: string;
 }
 
 export interface NavItem {
   label: string;
   href: string;
   description?: string;
-  children?: NavChildItem[];
+  headerTitle?: string;
+  headerSubtitle?: string;
+  subItems?: NavSubItem[];
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/", description: "Farm Health Innovations platform" },
+  { label: "Home", href: "/", description: "The Kashmir Chamber of Commerce & Industry" },
   {
-    label: "Products",
-    href: "/nitrofix",
-    description: "Proprietary inputs & innovations",
-    children: [
+    label: "About Us",
+    href: "/about",
+    description: "History & gallery since 1924",
+    headerTitle: "The Kashmir Chamber of Commerce",
+    headerSubtitle: "Est. 1924 · Sanctioned 1935",
+    subItems: [
       {
-        label: "NitroFIX™",
-        href: "/nitrofix",
-        badge: "Flagship",
-        description: "Circular biopolymer hydrogel & sustainable moisture matrix",
+        label: "Our History",
+        href: "/about/history",
+        badge: "Est. 1924",
+        description:
+          "Constituted in 1924 and sanctioned by His Highness Government in 1935.",
+        imageSrc: "/hero/autum1.webp",
+        imageAlt: "Autumn Chinar trees and Shikara reflecting Kashmir heritage since 1924",
+      },
+      {
+        label: "Our Gallery",
+        href: "/about/gallery",
+        badge: "Archive",
+        description:
+          "Chamber general meetings, MoU ceremonies, craftsmanship, and Valley heritage.",
+        imageSrc: "/hero/img2.jpg",
+        imageAlt: "The Kashmir Chamber of Commerce and Industry general meeting",
       },
     ],
   },
-  { label: "About Us", href: "/about", description: "Who we are & our capabilities" },
-  { label: "Contact", href: "/contact", description: "Inquiries, wholesale & partnership" },
+  {
+    label: "Services",
+    href: "/services",
+    description: "Certificates, attestation & visa letters",
+    headerTitle: "Chamber Business Services",
+    headerSubtitle: "Certificates & Recommendation Letters",
+    subItems: [
+      {
+        label: "Issuance of Certificates",
+        href: "/services/issuance-of-certificates",
+        badge: "Origin & Attestation",
+        description:
+          "Statutory Non-Preferential Certificate of Origin and commercial export document attestations.",
+        imageSrc: "/hero/img3.jpeg",
+        imageAlt: "KCCI Issuance of Certificates and Export Attestations",
+      },
+      {
+        label: "Recommendation Letters",
+        href: "/services/recommendation-letters",
+        badge: "Visa & Travel",
+        description:
+          "Official chamber visa recommendation letters for member business travel, trade delegations, and expos.",
+        imageSrc: "/hero/img1.jpg",
+        imageAlt: "KCCI Visa Recommendation Letters and Business Travel Support",
+      },
+    ],
+  },
+  { label: "Contact", href: "/contact", description: "Chamber secretariat & inquiries" },
 ];
 
 
@@ -94,25 +138,25 @@ export const RESEARCH_LINKS: NavLink[] = [
 
 
 export const LAB_CONTACT_INFO = {
-  title: "Farm Health Innovations Headquarters & Support",
-  email: "admin@farmhealth.in",
+  title: "The Kashmir Chamber of Commerce & Industry Secretariat",
+  email: "thekashmirchamber@gmail.com",
   emails: [
-    "admin@farmhealth.in",
-    "support@farm2i.com",
+    "thekashmirchamber@gmail.com",
   ],
-  organization: "Farm Health Innovations",
-  address: "4/3 S. D Colony Batamaloo, Srinagar, J&K-190006",
+  organization: "The Kashmir Chamber of Commerce & Industry",
+  address: "Mohidin Trust Building, Residency Road, Srinagar, India, 190001",
   addressLines: [
-    "4/3 S. D Colony Batamaloo",
-    "Srinagar, J&K-190006",
+    "Mohidin Trust Building, Residency Road",
+    "Srinagar, India, 190001",
   ],
   phones: [
-    "+91 94038 90112",
-    "+91 9758083252",
+    "+91 194 2452517",
+    "+91 911943102168",
   ],
-  phone: "+91 94038 90112",
-  hoursTitle: "Support Hours:",
-  hours: "Mon – Sat: 9:00 AM – 5:30 PM IST",
+  phone: "+91 194 2452517",
+  hoursTitle: "Office Hours:",
+  hours: "Monday To Saturday - 10.00 - 07.00",
+  closedHours: "Sunday - Closed",
 };
 
 export const SERVICES_LIST: ServiceItem[] = [

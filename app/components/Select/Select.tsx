@@ -94,45 +94,45 @@ export const Select: React.FC<SelectProps> = ({
         onClick={() => !disabled && setIsOpen(!isOpen)}
         className={`w-full flex items-center justify-between gap-2 ${
           icon ? "pl-9" : "pl-3.5"
-        } pr-3 py-2.5 bg-gray-50/80 border ${
+        } pr-3 py-2.5 bg-[#FBF7F2] border ${
           error
-            ? "border-red-400 focus:ring-red-200"
+            ? "border-[#A61A28] focus:ring-[#A61A28]/20"
             : isOpen
-            ? "border-[#1b4332] ring-2 ring-[#1b4332]/20 bg-white"
-            : "border-gray-300 hover:border-gray-400"
+            ? "border-[#6E2C00] ring-2 ring-[#BB5D0E]/20 bg-white"
+            : "border-[#6E2C00]/25 hover:border-[#6E2C00]/45"
         } rounded-xl text-sm transition-all text-left cursor-pointer disabled:bg-gray-100 disabled:opacity-60 disabled:cursor-not-allowed ${className}`}
       >
         {icon && (
-          <span className="absolute left-3 text-gray-400 pointer-events-none flex items-center justify-center">
+          <span className="absolute left-3 text-[#514646]/60 pointer-events-none flex items-center justify-center">
             {icon}
           </span>
         )}
 
-        <span className={`truncate font-medium ${selectedOption ? "text-gray-900" : "text-gray-400"}`}>
+        <span className={`truncate font-medium ${selectedOption ? "text-[#2B1203]" : "text-[#514646]/50"}`}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
 
         <ChevronDown
-          className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform duration-200 ${
-            isOpen ? "rotate-180 text-[#1b4332]" : ""
+          className={`w-4 h-4 text-[#514646]/60 flex-shrink-0 transition-transform duration-200 ${
+            isOpen ? "rotate-180 text-[#6E2C00]" : ""
           }`}
         />
       </button>
 
       {/* Dropdown Options Popover Menu */}
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full mt-1.5 z-50 bg-white border border-emerald-100 rounded-2xl shadow-xl overflow-hidden animate-in fade-in-50 slide-in-from-top-2 duration-150">
+        <div className="absolute left-0 right-0 top-full mt-1.5 z-50 bg-[#FFFDF9] border border-[#6E2C00]/20 rounded-2xl shadow-xl overflow-hidden animate-in fade-in-50 slide-in-from-top-2 duration-150">
           {/* Optional Search Input */}
           {searchable && (
-            <div className="p-2 border-b border-gray-100 bg-gray-50">
+            <div className="p-2 border-b border-[#6E2C00]/10 bg-[#FBF7F2]">
               <div className="relative">
-                <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-[#514646]/60 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-8 pr-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs focus:outline-none focus:border-[#1b4332]"
+                  className="w-full pl-8 pr-3 py-1.5 bg-white border border-[#6E2C00]/20 rounded-lg text-xs focus:outline-none focus:border-[#6E2C00]"
                   autoFocus
                 />
               </div>
@@ -151,8 +151,8 @@ export const Select: React.FC<SelectProps> = ({
                     onClick={() => handleSelect(opt.value)}
                     className={`w-full px-3.5 py-2.5 text-xs text-left flex items-center justify-between gap-2 transition-colors cursor-pointer ${
                       isSelected
-                        ? "bg-emerald-50 text-[#1b4332] font-bold"
-                        : "text-gray-700 hover:bg-gray-50 font-medium"
+                        ? "bg-[#FFD37C]/25 text-[#6E2C00] font-bold"
+                        : "text-[#514646] hover:bg-[#F3EAE0] font-medium"
                     }`}
                   >
                     <div className="flex items-center gap-2 min-w-0">
@@ -160,7 +160,7 @@ export const Select: React.FC<SelectProps> = ({
                       <div className="min-w-0">
                         <p className="truncate">{opt.label}</p>
                         {opt.sublabel && (
-                          <p className="text-[10px] text-gray-400 font-normal truncate">
+                          <p className="text-[10px] text-[#514646]/60 font-normal truncate">
                             {opt.sublabel}
                           </p>
                         )}
@@ -168,7 +168,7 @@ export const Select: React.FC<SelectProps> = ({
                     </div>
 
                     {isSelected && (
-                      <Check className="w-4 h-4 text-[#1b4332] flex-shrink-0" />
+                      <Check className="w-4 h-4 text-[#6E2C00] flex-shrink-0" />
                     )}
                   </button>
                 );

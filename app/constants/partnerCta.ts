@@ -10,14 +10,14 @@ export interface PartnerCtaData {
 }
 
 export const PARTNER_CTA_CONTENT: PartnerCtaData = {
-  eyebrow: "PARTNER WITH US",
-  heading: "Let's move agriculture forward.",
+  eyebrow: "THE KASHMIR CHAMBER OF COMMERCE",
+  heading: "Moving Kashmir's trade & industry forward.",
   description:
-    "We partner with distributors, commercial growers, and research institutions to scale practical biopolymer soil innovations.",
+    "Connecting artisans, industrial estates, exporters, hospitality leaders, and enterprises across Jammu & Kashmir since 1924.",
   secondaryNote:
-    "Interested in NitroFIX™ inputs or collaborative field trials? Let's talk.",
-  ctaText: "Start a Conversation",
+    "Interested in chamber membership, trade delegations, or regional partnerships? Let's connect.",
+  ctaText: "Contact the Chamber",
   ctaHref: "/contact",
-  secondaryCtaText: "Explore NitroFIX™",
-  secondaryCtaHref: "/#nitrofix-feature",
+  secondaryCtaText: "Explore Industries",
+  secondaryCtaHref: "/#key-sectors",
 };

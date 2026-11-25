@@ -4,41 +4,26 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, ChevronDown, Sprout, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import { NAV_ITEMS } from "@/app/constants/navigation";
+import { MegaDropdown } from "./MegaDropdown";
 import { MobileNav } from "./MobileNav";
+import { NavbarSearch } from "./NavbarSearch";
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [openDropdownLabel, setOpenDropdownLabel] = useState<string | null>(
+    null
+  );
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
- 
-  useEffect(() => {
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
     setIsOpen(false);
-    setIsDropdownOpen(false);
-  }, [pathname]);
-
-  // Track scroll position for subtle background enhancement on scroll
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled((prev) => {
-            const next = window.scrollY > 40;
-            return prev !== next ? next : prev;
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    setOpenDropdownLabel(null);
+  }
 
   // Lock body scroll when mobile menu is active
   useEffect(() => {
@@ -48,136 +33,113 @@ export const Navbar: React.FC = () => {
     };
   }, [isOpen]);
 
-  const handleMouseEnter = () => {
-    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
-    setIsDropdownOpen(true);
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
+
+  const handleOpenDropdown = (label: string) => {
+    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    setOpenDropdownLabel(label);
   };
 
-  const handleMouseLeave = () => {
-    dropdownTimeoutRef.current = setTimeout(() => {
-      setIsDropdownOpen(false);
+  const handleScheduleClose = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdownLabel(null);
     }, 150);
   };
 
-  const isItemActive = (href: string, children?: { href: string }[]) => {
+  const isItemActive = (
+    href: string,
+    subItems?: { href: string }[]
+  ): boolean => {
     if (href === "/" && pathname === "/") return true;
-    if (href === "/about" && pathname === "/about") return true;
     if (href === "/contact" && pathname === "/contact") return true;
-    if (href === "/nitrofix" && (pathname === "/nitrofix" || pathname.startsWith("/products"))) return true;
-    if (children?.some((c) => pathname === c.href || pathname.startsWith("/products"))) return true;
-    return false;
+    if (subItems && subItems.length > 0) {
+      return (
+        pathname.startsWith(href) ||
+        subItems.some((sub) => pathname.startsWith(sub.href))
+      );
+    }
+    return pathname === href;
   };
-
-
 
   return (
     <>
-      <header
-        className={`absolute top-0 inset-x-0 z-50 w-full transition-all duration-300 ${
-          isScrolled
-            ? "bg-slate-950/85 backdrop-blur-xl border-b border-white/10 shadow-lg"
-            : "bg-transparent border-b border-white/10"
-        }`}
-      >
-        <div className="w-full bg-gradient-to-r from-emerald-500/60 via-emerald-400 to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2 md:py-2">
-          <Link href="/" className="flex items-center gap-2 group">
-            <Image
-              src="/logo-white.png"
-              alt="Farm Health Innovations"
-              width={140}
-              height={36}
-              priority
-              className="h-7 md:h-11 w-auto object-contain"
-            />
-          </Link>
+      <header className="absolute top-0 inset-x-0 z-50 w-full bg-gradient-to-b from-[#1A0B06]/65 via-[#1A0B06]/25 to-transparent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between md:grid md:grid-cols-[1fr_auto_1fr] md:gap-4 py-2 md:py-2.5">
+          {/* Left: KCCI Brand Logo */}
+          <div className="justify-self-start">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 group px-2 py-1 rounded-xl bg-[#1A0B06]/55 backdrop-blur-md border border-[#41D6BD]/30 shadow-md transition-transform duration-200 hover:scale-105"
+            >
+              <Image
+                src="/logokcci-clear.png"
+                alt="The Kashmir Chamber of Commerce & Industry (INC)"
+                width={64}
+                height={60}
+                preload
+                className="h-9 md:h-11 w-auto object-contain"
+              />
+            </Link>
+          </div>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          {/* Center: Navigation Links */}
+          <nav className="hidden md:flex items-center justify-self-center gap-6 lg:gap-8">
             {NAV_ITEMS.map((item) => {
-              const hasChildren = item.children && item.children.length > 0;
-              const active = isItemActive(item.href, item.children);
+              const hasSubItems = Boolean(item.subItems?.length);
+              const active = isItemActive(item.href, item.subItems);
+              const isDropdownOpen = openDropdownLabel === item.label;
 
-              if (hasChildren) {
+              if (hasSubItems && item.subItems) {
                 return (
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={() => handleOpenDropdown(item.label)}
+                    onMouseLeave={handleScheduleClose}
                   >
                     <button
                       type="button"
-                      onClick={() => setIsDropdownOpen((prev) => !prev)}
-                      className={`relative inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-150 font-space cursor-pointer py-2 ${
-                        active || isDropdownOpen
-                          ? "text-emerald-300 font-bold"
-                          : "text-white/85 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
-                      }`}
+                      onClick={() =>
+                        setOpenDropdownLabel((prev) =>
+                          prev === item.label ? null : item.label
+                        )
+                      }
                       aria-expanded={isDropdownOpen}
+                      className={`relative inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-150 font-space py-2 cursor-pointer ${
+                        active || isDropdownOpen
+                          ? "text-[#FFD37C] font-bold"
+                          : "text-white/85 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,211,124,0.45)]"
+                      }`}
                     >
-                      <span>{item.label}</span>
+                      {item.label}
                       <ChevronDown
                         className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          isDropdownOpen ? "rotate-180 text-emerald-400" : "text-white/60"
+                          isDropdownOpen
+                            ? "rotate-180 text-[#FFD37C]"
+                            : "text-white/70"
                         }`}
                       />
                       {active && (
-                        <span className="absolute -bottom-1 inset-x-0 h-[2px] bg-emerald-400 rounded-full shadow-[0_0_8px_#10b981]" />
+                        <div
+                          aria-hidden="true"
+                          className="absolute -bottom-1 inset-x-0 h-[2px] bg-[#FFD37C] rounded-full shadow-[0_0_8px_#FFD37C]"
+                        />
                       )}
                     </button>
 
-                    {/* Dropdown Menu Panel */}
-                    {isDropdownOpen && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-72 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                        <div className="rounded-2xl bg-slate-900/95 backdrop-blur-2xl border border-emerald-500/30 p-2 shadow-2xl ring-1 ring-white/10">
-                          <div className="px-3 py-1.5 text-[10px] font-mono font-bold uppercase text-emerald-400/80 tracking-wider">
-                            Proprietary Innovations
-                          </div>
-
-                          <div className="space-y-1">
-                            {item.children?.map((child) => {
-                              const isChildActive = pathname === child.href;
-                              return (
-                                <Link
-                                  key={child.label}
-                                  href={child.href}
-                                  onClick={() => setIsDropdownOpen(false)}
-                                  className={`group/item flex items-start gap-3 p-2.5 rounded-xl transition-all duration-150 ${
-                                    isChildActive
-                                      ? "bg-emerald-500/20 border border-emerald-400/40 text-white"
-                                      : "hover:bg-white/10 text-slate-200 hover:text-white"
-                                  }`}
-                                >
-                                  <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 flex items-center justify-center shrink-0 group-hover/item:bg-emerald-500 group-hover/item:text-white transition-colors">
-                                    <Sprout className="w-4 h-4" />
-                                  </div>
-
-                                  <div className="flex-1 space-y-0.5">
-                                    <div className="flex items-center gap-1.5">
-                                      <span className="text-sm font-bold font-space text-white group-hover/item:text-emerald-300 transition-colors">
-                                        {child.label}
-                                      </span>
-                                      {child.badge && (
-                                        <span className="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold uppercase bg-emerald-400/20 text-emerald-300 border border-emerald-400/30">
-                                          {child.badge}
-                                        </span>
-                                      )}
-                                    </div>
-                                    {child.description && (
-                                      <p className="text-[11px] text-slate-300 font-work-sans leading-tight line-clamp-2">
-                                        {child.description}
-                                      </p>
-                                    )}
-                                  </div>
-
-                                  <ArrowRight className="w-3.5 h-3.5 text-slate-500 group-hover/item:text-emerald-300 group-hover/item:translate-x-0.5 transition-all self-center" />
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                    <MegaDropdown
+                      isOpen={isDropdownOpen}
+                      items={item.subItems}
+                      pathname={pathname}
+                      onClose={() => setOpenDropdownLabel(null)}
+                      headerTitle={item.headerTitle}
+                      headerSubtitle={item.headerSubtitle}
+                      width={580}
+                    />
                   </div>
                 );
               }
@@ -188,28 +150,35 @@ export const Navbar: React.FC = () => {
                   href={item.href}
                   className={`relative text-sm font-semibold transition-colors duration-150 font-space py-2 ${
                     active
-                      ? "text-emerald-300 font-bold"
-                      : "text-white/85 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                      ? "text-[#FFD37C] font-bold"
+                      : "text-white/85 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,211,124,0.45)]"
                   }`}
                 >
                   {item.label}
                   {active && (
-                    <span className="absolute -bottom-1 inset-x-0 h-[2px] bg-emerald-400 rounded-full shadow-[0_0_8px_#10b981]" />
+                    <div
+                      aria-hidden="true"
+                      className="absolute -bottom-1 inset-x-0 h-[2px] bg-[#FFD37C] rounded-full shadow-[0_0_8px_#FFD37C]"
+                    />
                   )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            type="button"
-            onClick={() => setIsOpen((prev) => !prev)}
-            aria-label="Toggle navigation menu"
-            className="md:hidden p-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white transition-all border border-white/20 backdrop-blur-md active:scale-95 cursor-pointer"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
+          {/* Right End: Reusable Search + Mobile Menu Toggle */}
+          <div className="flex items-center justify-end md:justify-self-end gap-2">
+            <NavbarSearch />
+
+            <button
+              type="button"
+              onClick={() => setIsOpen((prev) => !prev)}
+              aria-label="Toggle navigation menu"
+              className="md:hidden p-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-white transition-all border border-white/20 backdrop-blur-md active:scale-95 cursor-pointer"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </header>
 

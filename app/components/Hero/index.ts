@@ -1,4 +1,5 @@
 export * from "./Hero";
+export * from "./HeroMorphBackdrop";
 export * from "./useHeroCarousel";
 export * from "./HeroNav";
 export * from "./HeroContent";

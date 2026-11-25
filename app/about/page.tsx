@@ -3,10 +3,11 @@
 import React from "react";
 import {
   AboutHero,
+  KcciHeritagePoetryBand,
   AboutMission,
   WhatWeDo,
   CoreAdvantages,
-  StandardsLedger,
+ 
   PartnerCta,
 } from "@/app/components";
 
@@ -15,6 +16,8 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white text-slate-900">
    
       <AboutHero />
+
+      <KcciHeritagePoetryBand />
 
     
       <AboutMission />
@@ -26,7 +29,7 @@ export default function AboutPage() {
       <CoreAdvantages />
 
     
-      <StandardsLedger />
+    
 
       
       <PartnerCta />

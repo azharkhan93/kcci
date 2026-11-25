@@ -3,8 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { X, ArrowRight, Mail, Phone, ChevronDown, Sprout } from "lucide-react";
-import { NAV_ITEMS, LAB_CONTACT_INFO } from "@/app/constants/navigation";
+import { X, ArrowRight, ChevronDown, Globe, MapPin } from "lucide-react";
+import { NAV_ITEMS } from "@/app/constants/navigation";
 
 export interface MobileNavProps {
   isOpen: boolean;
@@ -17,32 +17,33 @@ export const MobileNav: React.FC<MobileNavProps> = ({
   onClose,
   pathname,
 }) => {
-  const [productsExpanded, setProductsExpanded] = useState(true);
+  const [expandedLabel, setExpandedLabel] = useState<string | null>("About Us");
 
   if (!isOpen) return null;
 
-  const isItemActive = (href: string, children?: { href: string }[]) => {
+  const isItemActive = (href: string, subItems?: { href: string }[]) => {
     if (href === "/" && pathname === "/") return true;
-    if (href === "/about" && pathname === "/about") return true;
     if (href === "/contact" && pathname === "/contact") return true;
-    if (href === "/nitrofix" && (pathname === "/nitrofix" || pathname.startsWith("/products"))) return true;
-    if (children?.some((c) => pathname === c.href || pathname.startsWith("/products"))) return true;
-    return false;
+    if (subItems && subItems.length > 0) {
+      return (
+        pathname.startsWith(href) ||
+        subItems.some((sub) => pathname.startsWith(sub.href))
+      );
+    }
+    return pathname === href;
   };
 
-
-
   return (
-    <div className="fixed inset-0 z-[100] w-screen h-[100dvh] bg-white flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200 md:hidden">
+    <div className="fixed inset-0 z-[100] w-screen h-[100dvh] bg-[#FBF7F2] flex flex-col justify-between overflow-y-auto animate-in fade-in duration-200 md:hidden">
       {/* Top Header */}
-      <div className="px-6 py-5 flex items-center justify-between border-b border-slate-100">
+      <div className="px-6 py-5 flex items-center justify-between border-b border-[#6E2C00]/15">
         <Link href="/" className="flex items-center gap-2" onClick={onClose}>
           <Image
-            src="/logo.png"
-            alt="Farm Health Innovations"
-            width={140}
-            height={36}
-            className="h-8 w-auto object-contain"
+            src="/logokcci-dark.png"
+            alt="The Kashmir Chamber of Commerce & Industry (INC)"
+            width={56}
+            height={53}
+            className="h-10 w-auto object-contain"
           />
         </Link>
 
@@ -50,7 +51,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Close menu"
-          className="p-2.5 rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors cursor-pointer active:scale-95"
+          className="p-2.5 rounded-full bg-[#F3EAE0] text-[#514646] hover:bg-[#E7D8C9] transition-colors cursor-pointer active:scale-95"
         >
           <X className="w-5 h-5" />
         </button>
@@ -59,64 +60,79 @@ export const MobileNav: React.FC<MobileNavProps> = ({
       {/* Main Navigation Links */}
       <nav className="flex-1 px-6 py-6 flex flex-col justify-center space-y-1">
         {NAV_ITEMS.map((item) => {
-          const hasChildren = item.children && item.children.length > 0;
-          const active = isItemActive(item.href, item.children);
+          const hasSubItems = Boolean(item.subItems?.length);
+          const active = isItemActive(item.href, item.subItems);
+          const isExpanded = expandedLabel === item.label;
 
-          if (hasChildren) {
+          if (hasSubItems && item.subItems) {
             return (
-              <div key={item.label} className="border-b border-slate-100 py-2">
-                <div className="flex items-center justify-between py-2">
-                  <span className="text-xl font-semibold tracking-tight text-slate-800">
-                    {item.label}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setProductsExpanded((prev) => !prev)}
-                    className="p-1 text-slate-500 hover:text-slate-800"
-                    aria-label="Toggle products submenu"
+              <div key={item.label} className="border-b border-[#6E2C00]/15 py-2">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setExpandedLabel((prev) =>
+                      prev === item.label ? null : item.label
+                    )
+                  }
+                  aria-expanded={isExpanded}
+                  className="w-full flex items-center justify-between py-2 text-left cursor-pointer"
+                >
+                  <p
+                    className={`text-xl tracking-tight ${
+                      active
+                        ? "text-[#6E2C00] font-extrabold"
+                        : "text-[#514646] font-semibold"
+                    }`}
                   >
-                    <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-200 ${
-                        productsExpanded ? "rotate-180 text-emerald-600" : ""
-                      }`}
-                    />
-                  </button>
-                </div>
+                    {item.label}
+                  </p>
+                  <ChevronDown
+                    className={`w-5 h-5 transition-transform duration-200 ${
+                      isExpanded ? "rotate-180 text-[#A61A28]" : "text-[#514646]/70"
+                    }`}
+                  />
+                </button>
 
-                {productsExpanded && (
-                  <div className="pl-3 pr-1 py-2 space-y-2">
-                    {item.children?.map((child) => {
-                      const isChildActive = pathname === child.href;
+                {isExpanded && (
+                  <div className="pt-2 pb-1 space-y-2.5">
+                    {item.subItems.map((sub) => {
+                      const isSubActive = pathname === sub.href;
                       return (
                         <Link
-                          key={child.label}
-                          href={child.href}
+                          key={sub.href}
+                          href={sub.href}
                           onClick={onClose}
-                          className={`flex items-start gap-3 p-3 rounded-xl transition-all ${
-                            isChildActive
-                              ? "bg-emerald-50 border border-emerald-300 text-[#1b4332]"
-                              : "bg-slate-50 border border-slate-200/80 text-slate-800 hover:bg-emerald-50/50"
+                          className={`flex items-center gap-3 p-2.5 rounded-xl border transition-all ${
+                            isSubActive
+                              ? "bg-[#6E2C00]/10 border-[#7E393F]/45"
+                              : "bg-[#F3EAE0]/75 border-[#6E2C00]/15 hover:border-[#BB5D0E]/45"
                           }`}
                         >
-                          <div className="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0 mt-0.5">
-                            <Sprout className="w-4 h-4" />
-                          </div>
-                          <div className="flex-1 space-y-0.5">
-                            <div className="flex items-center gap-2">
-                              <span className="text-base font-bold font-space">
-                                {child.label}
-                              </span>
-                              {child.badge && (
-                                <span className="px-1.5 py-0.2 rounded text-[10px] font-mono font-bold uppercase bg-emerald-600 text-white">
-                                  {child.badge}
-                                </span>
+                          <div
+                            role="img"
+                            aria-label={sub.imageAlt}
+                            className="w-14 h-12 rounded-lg shrink-0 bg-[#2B1203]"
+                            style={{
+                              backgroundImage: `url("${sub.imageSrc}")`,
+                              backgroundSize: "cover",
+                              backgroundPosition: "center",
+                              backgroundRepeat: "no-repeat",
+                            }}
+                          />
+                          <div className="min-w-0 flex-1 space-y-0.5">
+                            <div className="flex items-center gap-1.5">
+                              <h4 className="text-sm font-bold font-space text-[#2B1203] truncate">
+                                {sub.label}
+                              </h4>
+                              {sub.badge && (
+                                <h6 className="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold uppercase bg-[#6E2C00] text-[#FFD37C] shrink-0">
+                                  {sub.badge}
+                                </h6>
                               )}
                             </div>
-                            {child.description && (
-                              <p className="text-xs text-slate-600 font-work-sans">
-                                {child.description}
-                              </p>
-                            )}
+                            <p className="text-[11px] text-[#514646] font-work-sans leading-snug line-clamp-2">
+                              {sub.description}
+                            </p>
                           </div>
                         </Link>
                       );
@@ -132,18 +148,18 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               key={item.label}
               href={item.href}
               onClick={onClose}
-              className={`group flex items-center justify-between py-3.5 border-b border-slate-100 transition-all ${
+              className={`group flex items-center justify-between py-3.5 border-b border-[#6E2C00]/15 transition-all ${
                 active
-                  ? "text-[#1b4332] font-extrabold"
-                  : "text-slate-800 hover:text-[#1b4332] font-semibold"
+                  ? "text-[#6E2C00] font-extrabold"
+                  : "text-[#514646] hover:text-[#6E2C00] font-semibold"
               }`}
             >
-              <span className="text-xl tracking-tight">{item.label}</span>
+              <p className="text-xl tracking-tight">{item.label}</p>
               <div
                 className={`w-2 h-2 rounded-full transition-all ${
                   active
-                    ? "bg-[#1b4332] scale-125"
-                    : "bg-transparent group-hover:bg-slate-300"
+                    ? "bg-[#A61A28] scale-125"
+                    : "bg-transparent group-hover:bg-[#BB5D0E]/40"
                 }`}
               />
             </Link>
@@ -151,26 +167,31 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         })}
       </nav>
 
-      {/* Bottom Actions & Contact */}
-      <div className="p-6 border-t border-slate-100 bg-slate-50/70 space-y-4">
-        <div className="flex flex-col gap-1.5 text-xs text-slate-600">
+      {/* Bottom Actions & Chamber Info */}
+      <div className="p-6 border-t border-[#6E2C00]/15 bg-[#F3EAE0]/80 space-y-4">
+        <div className="flex flex-col gap-1.5 text-xs text-[#514646]">
           <div className="flex items-center gap-2">
-            <Mail className="w-3.5 h-3.5 text-[#1b4332]" />
-            <span>admin@farmhealth.in</span>
+            <MapPin className="w-3.5 h-3.5 text-[#6E2C00]" />
+            <p>Mohidin Trust Building, Residency Road, Srinagar</p>
           </div>
-          <div className="flex items-center gap-2">
-            <Phone className="w-3.5 h-3.5 text-[#1b4332]" />
-            <span>+91 94038 90112</span>
-          </div>
+          <a
+            href="https://thekcci.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-[#6E2C00] transition-colors"
+          >
+            <Globe className="w-3.5 h-3.5 text-[#6E2C00]" />
+            <p>thekcci.in</p>
+          </a>
         </div>
 
         <Link
           href="/contact"
           onClick={onClose}
-          className="w-full py-3.5 px-4 rounded-xl bg-[#1b4332] hover:bg-[#081c15] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-98 transition-all"
+          className="w-full py-3.5 px-4 rounded-xl bg-[#6E2C00] hover:bg-[#7E393F] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-98 transition-all"
         >
-          <span>Inquire &amp; Contact Us</span>
-          <ArrowRight className="w-4 h-4 text-emerald-300" />
+          Inquire &amp; Contact Us
+          <ArrowRight className="w-4 h-4 text-[#FFD37C]" />
         </Link>
       </div>
     </div>

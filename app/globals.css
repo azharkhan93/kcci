@@ -1,19 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-nitrofix-green-deep: #124413;
-  --color-nitrofix-green-leaf: #2D6A1D;
-  --color-nitrofix-green-lime: #66A107;
-  --color-nitrofix-orange-vivid: #EA7202;
-  --color-nitrofix-orange-amber: #FFA90E;
-  --color-nitrofix-water-blue: #00A0E1;
-  --color-nitrofix-earth-brown: #44260A;
+  /* Kashmir Harud (Autumn) 60-30-10 Palette:
+     60% Brown & Timber Neutrals (#6E2C00, #514646, warm walnut cream)
+     30% Chinar & Sienna & Olive (#7E393F, #BB5D0E, #64691D)
+     10% Autumn Red & Gold Highlights (#A61A28, #D8992E, #FFD37C) */
+  --color-nitrofix-green-deep: #6E2C00;
+  --color-nitrofix-green-leaf: #7E393F;
+  --color-nitrofix-green-lime: #BB5D0E;
+  --color-nitrofix-orange-vivid: #BB5D0E;
+  --color-nitrofix-orange-amber: #D8992E;
+  --color-nitrofix-water-blue: #514646;
+  --color-nitrofix-earth-brown: #6E2C00;
 
-  --color-primary: #124413;
-  --color-primary-dark: #081c15;
-  --color-primary-light: #2D6A1D;
-  --color-secondary: #EA7202;
-  --color-secondary-hover: #FFA90E;
+  --color-harud-bark: #6E2C00;
+  --color-harud-charcoal: #514646;
+  --color-harud-maroon: #7E393F;
+  --color-harud-red: #A61A28;
+  --color-harud-sienna: #BB5D0E;
+  --color-harud-amber: #D8992E;
+  --color-harud-gold: #FFD37C;
+  --color-harud-olive: #64691D;
+  --color-harud-pashmina: #FBF7F2;
+
+  --color-primary: #6E2C00;
+  --color-primary-dark: #2B1203;
+  --color-primary-light: #BB5D0E;
+  --color-secondary: #D8992E;
+  --color-secondary-hover: #FFD37C;
 
   --font-sans: var(--font-space-grotesk), var(--font-work-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
@@ -28,33 +42,46 @@
 }
 
 :root {
-  /* NitroFIX Brand Color Palette */
-  --nitrofix-green-deep:   #124413;
-  --nitrofix-green-leaf:   #2D6A1D;
-  --nitrofix-green-lime:   #66A107;
-  --nitrofix-orange-vivid: #EA7202;
-  --nitrofix-orange-amber: #FFA90E;
-  --nitrofix-water-blue:   #00A0E1;
-  --nitrofix-earth-brown:  #44260A;
+  /* Kashmir Harud (Autumn) & Handicrafts Exact Variables */
+  --harud-bark:            #6E2C00;
+  --harud-bark-deep:       #2B1203;
+  --harud-charcoal:        #514646;
+  --harud-maroon:          #7E393F;
+  --harud-red:             #A61A28;
+  --harud-sienna:          #BB5D0E;
+  --harud-amber:           #D8992E;
+  --harud-gold:            #FFD37C;
+  --harud-olive:           #64691D;
+  --harud-pashmina:        #FBF7F2;
+  --harud-parchment:       #F3EAE0;
+
+  /* Mapped Brand Tokens */
+  --nitrofix-green-deep:   #6E2C00;
+  --nitrofix-green-leaf:   #7E393F;
+  --nitrofix-green-lime:   #BB5D0E;
+  --nitrofix-orange-vivid: #BB5D0E;
+  --nitrofix-orange-amber: #D8992E;
+  --nitrofix-water-blue:   #64691D;
+  --nitrofix-earth-brown:  #6E2C00;
 
   /* Global Theme Colors */
-  --color-primary: #124413;
-  --color-primary-dark: #081c15;
-  --color-primary-light: #2D6A1D;
-  --color-secondary: #EA7202;
-  --color-secondary-hover: #FFA90E;
+  --color-primary: #6E2C00;
+  --color-primary-dark: #2B1203;
+  --color-primary-light: #BB5D0E;
+  --color-secondary: #D8992E;
+  --color-secondary-hover: #FFD37C;
 
-  /* Button Brand Gradients */
-  --gradient-btn-primary: linear-gradient(135deg, #2D6A1D 0%, #124413 100%);
-  --gradient-btn-primary-hover: linear-gradient(135deg, #66A107 0%, #2D6A1D 55%, #124413 100%);
-  --gradient-btn-secondary: linear-gradient(135deg, #FFA90E 0%, #EA7202 100%);
-  --gradient-btn-secondary-hover: linear-gradient(135deg, #FFB833 0%, #FFA90E 50%, #EA7202 100%);
-  --gradient-btn-hydro: linear-gradient(135deg, #00A0E1 0%, #2D6A1D 100%);
-  --gradient-nitrofix-fusion: linear-gradient(135deg, #66A107 0%, #2D6A1D 45%, #EA7202 100%);
+  /* Button Brand Gradients (60% Dark Bark -> 30% Maroon/Sienna -> 10% Amber/Red) */
+  --gradient-btn-primary: linear-gradient(135deg, #7E393F 0%, #6E2C00 100%);
+  --gradient-btn-primary-hover: linear-gradient(135deg, #BB5D0E 0%, #A61A28 55%, #6E2C00 100%);
+  --gradient-btn-secondary: linear-gradient(135deg, #FFD37C 0%, #D8992E 50%, #BB5D0E 100%);
+  --gradient-btn-secondary-hover: linear-gradient(135deg, #FFE4A3 0%, #FFD37C 50%, #D8992E 100%);
+  --gradient-btn-hydro: linear-gradient(135deg, #64691D 0%, #6E2C00 100%);
+  --gradient-nitrofix-fusion: linear-gradient(135deg, #FFD37C 0%, #BB5D0E 48%, #A61A28 100%);
 
-  --gradient-emerald-forest: linear-gradient(135deg, #059669 0%, #124413 100%);
-  --gradient-forest: linear-gradient(135deg, #124413 0%, #2D6A1D 50%, #66A107 100%);
-  --gradient-emerald-glow: linear-gradient(135deg, #66A107 0%, #2D6A1D 50%, #124413 100%);
+  --gradient-emerald-forest: linear-gradient(135deg, #7E393F 0%, #6E2C00 100%);
+  --gradient-forest: linear-gradient(135deg, #6E2C00 0%, #7E393F 50%, #BB5D0E 100%);
+  --gradient-emerald-glow: linear-gradient(135deg, #FFD37C 0%, #D8992E 50%, #6E2C00 100%);
   
   --font-family-sans: var(--font-space-grotesk), var(--font-work-sans), system-ui, sans-serif;
   --font-family-heading: var(--font-space-grotesk), system-ui, sans-serif;
@@ -132,72 +159,75 @@ h6,
   font-family: 'Quicksand', system-ui, sans-serif;
 }
 
+.font-kashmiri {
+  font-family: var(--font-noto-arabic), 'Noto Sans Arabic', 'Geeza Pro', system-ui, sans-serif;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #ffffff;
-  color: #1a1a1a;
+  background-color: #fbf7f2;
+  color: #514646;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* ── Button Variant Classes ─────────────────────────────── */
-/* ── Button Variant Classes ─────────────────────────────── */
+/* ── Button Variant Classes (60% Bark/Maroon, 30% Sienna, 10% Amber/Red) ── */
 .btn-primary {
-  background: linear-gradient(135deg, var(--nitrofix-green-leaf) 0%, var(--nitrofix-green-deep) 100%);
+  background: linear-gradient(135deg, #7E393F 0%, #6E2C00 100%);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 14px rgba(18, 68, 19, 0.35);
+  border: 1px solid rgba(255, 211, 124, 0.25);
+  box-shadow: 0 4px 14px rgba(110, 44, 0, 0.34);
 }
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 55%, var(--nitrofix-green-deep) 100%);
-  box-shadow: 0 6px 20px rgba(45, 106, 29, 0.45);
+  background: linear-gradient(135deg, #BB5D0E 0%, #A61A28 55%, #6E2C00 100%);
+  box-shadow: 0 6px 20px rgba(166, 26, 40, 0.38);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--nitrofix-orange-amber) 0%, var(--nitrofix-orange-vivid) 100%);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 14px rgba(234, 114, 2, 0.35);
+  background: linear-gradient(135deg, #FFD37C 0%, #D8992E 50%, #BB5D0E 100%);
+  color: #2B1203;
+  border: 1px solid rgba(255, 211, 124, 0.4);
+  box-shadow: 0 4px 14px rgba(187, 93, 14, 0.28);
 }
 .btn-secondary:hover {
-  background: linear-gradient(135deg, #FFB833 0%, var(--nitrofix-orange-amber) 50%, var(--nitrofix-orange-vivid) 100%);
-  box-shadow: 0 6px 20px rgba(234, 114, 2, 0.45);
+  background: linear-gradient(135deg, #FFE4A3 0%, #FFD37C 50%, #D8992E 100%);
+  box-shadow: 0 6px 20px rgba(216, 153, 46, 0.4);
 }
 
 .btn-outline {
-  background-color: #ffffff;
-  color: var(--nitrofix-green-deep);
-  border: 1.5px solid var(--nitrofix-green-leaf);
+  background-color: #fbf7f2;
+  color: #6E2C00;
+  border: 1.5px solid #7E393F;
   font-weight: 700;
 }
 .btn-outline:hover {
-  background: linear-gradient(135deg, var(--nitrofix-green-leaf) 0%, var(--nitrofix-green-deep) 100%);
+  background: linear-gradient(135deg, #7E393F 0%, #6E2C00 100%);
   color: #ffffff;
   border-color: transparent;
-  box-shadow: 0 4px 14px rgba(18, 68, 19, 0.25);
+  box-shadow: 0 4px 14px rgba(110, 44, 0, 0.26);
 }
 
 .btn-ghost {
   background-color: transparent;
-  color: #1a1a1a;
+  color: #514646;
   border: 1px solid transparent;
 }
 .btn-ghost:hover {
-  background-color: #ecfdf5;
-  color: var(--nitrofix-green-deep);
+  background-color: rgba(255, 211, 124, 0.2);
+  color: #6E2C00;
 }
 
 .btn-danger {
-  background-color: #dc2626;
+  background-color: #A61A28;
   color: #ffffff;
   border: 1px solid transparent;
 }
 .btn-danger:hover {
-  background-color: #b91c1c;
+  background-color: #7E393F;
 }
 
 /* ── Button Size Classes ─────────────────────────────────── */
@@ -220,76 +250,76 @@ body {
   gap: 12px;
 }
 
-/* ── NitroFIX & Emerald Gradients ─────────────────────────── */
+/* ── Kashmir Harud & Chinar Gradients ─────────────────────── */
 .bg-nitrofix-leaf-deep {
-  background: linear-gradient(135deg, var(--nitrofix-green-leaf) 0%, var(--nitrofix-green-deep) 100%);
+  background: linear-gradient(135deg, #7E393F 0%, #6E2C00 100%);
 }
 .bg-nitrofix-lime-leaf {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 100%);
+  background: linear-gradient(135deg, #BB5D0E 0%, #7E393F 100%);
 }
 .bg-nitrofix-orange-amber {
-  background: linear-gradient(135deg, var(--nitrofix-orange-amber) 0%, var(--nitrofix-orange-vivid) 100%);
+  background: linear-gradient(135deg, #FFD37C 0%, #D8992E 50%, #BB5D0E 100%);
 }
 .bg-nitrofix-water-leaf {
-  background: linear-gradient(135deg, var(--nitrofix-water-blue) 0%, var(--nitrofix-green-leaf) 100%);
+  background: linear-gradient(135deg, #64691D 0%, #6E2C00 100%);
 }
 .bg-nitrofix-fusion {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 45%, var(--nitrofix-orange-vivid) 100%);
+  background: linear-gradient(135deg, #FFD37C 0%, #BB5D0E 45%, #A61A28 100%);
 }
 
 .bg-emerald-forest {
-  background: linear-gradient(135deg, #059669 0%, #124413 100%);
+  background: linear-gradient(135deg, #A61A28 0%, #6E2C00 100%);
 }
 
 .bg-forest-gradient {
-  background: linear-gradient(135deg, var(--nitrofix-green-deep) 0%, var(--nitrofix-green-leaf) 50%, var(--nitrofix-green-lime) 100%);
+  background: linear-gradient(135deg, #6E2C00 0%, #7E393F 50%, #BB5D0E 100%);
 }
 
 .bg-emerald-glow {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 50%, var(--nitrofix-green-deep) 100%);
+  background: linear-gradient(135deg, #FFD37C 0%, #D8992E 50%, #6E2C00 100%);
 }
 
 .text-gradient-nitrofix {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-orange-vivid) 100%);
+  background: linear-gradient(135deg, #BB5D0E 0%, #A61A28 50%, #D8992E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-orange {
-  background: linear-gradient(135deg, var(--nitrofix-orange-amber) 0%, var(--nitrofix-orange-vivid) 100%);
+  background: linear-gradient(135deg, #FFD37C 0%, #BB5D0E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-leaf {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-leaf) 60%, var(--nitrofix-green-deep) 100%);
+  background: linear-gradient(135deg, #A61A28 0%, #BB5D0E 55%, #6E2C00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-emerald-forest {
-  background: linear-gradient(135deg, var(--nitrofix-green-lime) 0%, var(--nitrofix-green-deep) 100%);
+  background: linear-gradient(135deg, #BB5D0E 0%, #6E2C00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ── NitroFIX Badges & Chips ── */
+/* ── Kashmir Harud Badges & Chips ── */
 .badge-nitrofix {
-  background: rgba(45, 106, 29, 0.12);
-  color: var(--nitrofix-green-deep);
-  border: 1px solid rgba(45, 106, 29, 0.25);
+  background: rgba(110, 44, 0, 0.09);
+  color: #6E2C00;
+  border: 1px solid rgba(126, 57, 63, 0.28);
 }
 
 .badge-nitrofix-orange {
-  background: rgba(234, 114, 2, 0.12);
-  color: var(--nitrofix-orange-vivid);
-  border: 1px solid rgba(234, 114, 2, 0.25);
+  background: rgba(255, 211, 124, 0.25);
+  color: #6E2C00;
+  border: 1px solid rgba(187, 93, 14, 0.35);
 }
 
 .badge-nitrofix-blue {
-  background: rgba(0, 160, 225, 0.12);
-  color: var(--nitrofix-water-blue);
-  border: 1px solid rgba(0, 160, 225, 0.25);
+  background: rgba(100, 105, 29, 0.12);
+  color: #64691D;
+  border: 1px solid rgba(100, 105, 29, 0.28);
 }
 
 /* ── Custom Scrollbar ────────────────────────────────────── */
@@ -320,4 +350,24 @@ body {
 .hide-scrollbar {
   -ms-overflow-style: none !important; /* IE and Edge */
   scrollbar-width: none !important; /* Firefox */
+}
+
+/* ── Hero Carousel Subtle Ken Burns Motion ───────────────── */
+@keyframes hero-ken-burns {
+  0% {
+    transform: scale(1.01) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-0.6%, -0.4%, 0);
+  }
+}
+
+.animate-hero-ken-burns {
+  animation: hero-ken-burns 8.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-ken-burns {
+    animation: none !important;
+  }
 }

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
+import { ChinarLeafSvg } from "@/app/components/KashmirMotifs";
 import { NITROFIX_BENEFITS_CONTENT } from "@/app/constants/nitrofixBenefits";
 
 interface AccentStyle {
@@ -19,52 +20,52 @@ interface AccentStyle {
 
 const ACCENT_MAP: Record<string, AccentStyle> = {
   sky: {
-    sideRail: "bg-gradient-to-b from-sky-400 via-cyan-500 to-blue-600",
-    sideGlow: "bg-sky-400/25",
-    cardAura: "from-sky-500/8 via-transparent to-transparent",
-    iconBg: "bg-sky-50",
-    iconHover: "group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white group-hover:border-sky-400 group-hover:shadow-md group-hover:shadow-sky-500/25",
-    iconText: "text-sky-600",
-    iconBorder: "border-sky-200/80",
-    numHover: "group-hover:from-sky-600 group-hover:to-blue-600",
-    borderHover: "hover:border-sky-400/80 hover:shadow-sky-500/10",
-    tagBg: "text-sky-600 group-hover:text-sky-700",
+    sideRail: "bg-gradient-to-b from-[#64691D] via-[#BB5D0E] to-[#6E2C00]",
+    sideGlow: "bg-[#64691D]/25",
+    cardAura: "from-[#64691D]/10 via-transparent to-transparent",
+    iconBg: "bg-[#64691D]/10",
+    iconHover: "group-hover:bg-gradient-to-br group-hover:from-[#64691D] group-hover:to-[#6E2C00] group-hover:text-white group-hover:border-[#64691D] group-hover:shadow-md group-hover:shadow-[#64691D]/25",
+    iconText: "text-[#64691D]",
+    iconBorder: "border-[#64691D]/25",
+    numHover: "group-hover:from-[#64691D] group-hover:to-[#6E2C00]",
+    borderHover: "hover:border-[#64691D]/60 hover:shadow-[#64691D]/10",
+    tagBg: "text-[#64691D] group-hover:text-[#6E2C00]",
   },
   emerald: {
-    sideRail: "bg-gradient-to-b from-emerald-400 via-teal-500 to-emerald-700",
-    sideGlow: "bg-emerald-400/25",
-    cardAura: "from-emerald-500/8 via-transparent to-transparent",
-    iconBg: "bg-emerald-50",
-    iconHover: "group-hover:bg-gradient-to-br group-hover:from-emerald-500 group-hover:to-teal-600 group-hover:text-white group-hover:border-emerald-400 group-hover:shadow-md group-hover:shadow-emerald-500/25",
-    iconText: "text-emerald-600",
-    iconBorder: "border-emerald-200/80",
-    numHover: "group-hover:from-emerald-600 group-hover:to-teal-600",
-    borderHover: "hover:border-emerald-400/80 hover:shadow-emerald-500/10",
-    tagBg: "text-emerald-600 group-hover:text-emerald-700",
+    sideRail: "bg-gradient-to-b from-[#A61A28] via-[#7E393F] to-[#6E2C00]",
+    sideGlow: "bg-[#7E393F]/25",
+    cardAura: "from-[#7E393F]/10 via-transparent to-transparent",
+    iconBg: "bg-[#7E393F]/10",
+    iconHover: "group-hover:bg-gradient-to-br group-hover:from-[#7E393F] group-hover:to-[#6E2C00] group-hover:text-white group-hover:border-[#7E393F] group-hover:shadow-md group-hover:shadow-[#6E2C00]/25",
+    iconText: "text-[#7E393F]",
+    iconBorder: "border-[#7E393F]/25",
+    numHover: "group-hover:from-[#A61A28] group-hover:to-[#6E2C00]",
+    borderHover: "hover:border-[#7E393F]/60 hover:shadow-[#6E2C00]/10",
+    tagBg: "text-[#7E393F] group-hover:text-[#6E2C00]",
   },
   teal: {
-    sideRail: "bg-gradient-to-b from-teal-400 via-emerald-500 to-teal-700",
-    sideGlow: "bg-teal-400/25",
-    cardAura: "from-teal-500/8 via-transparent to-transparent",
-    iconBg: "bg-teal-50",
-    iconHover: "group-hover:bg-gradient-to-br group-hover:from-teal-500 group-hover:to-emerald-600 group-hover:text-white group-hover:border-teal-400 group-hover:shadow-md group-hover:shadow-teal-500/25",
-    iconText: "text-teal-600",
-    iconBorder: "border-teal-200/80",
-    numHover: "group-hover:from-teal-600 group-hover:to-emerald-600",
-    borderHover: "hover:border-teal-400/80 hover:shadow-teal-500/10",
-    tagBg: "text-teal-600 group-hover:text-teal-700",
+    sideRail: "bg-gradient-to-b from-[#FFD37C] via-[#D8992E] to-[#BB5D0E]",
+    sideGlow: "bg-[#D8992E]/25",
+    cardAura: "from-[#FFD37C]/20 via-transparent to-transparent",
+    iconBg: "bg-[#FFD37C]/25",
+    iconHover: "group-hover:bg-gradient-to-br group-hover:from-[#D8992E] group-hover:to-[#BB5D0E] group-hover:text-white group-hover:border-[#D8992E] group-hover:shadow-md group-hover:shadow-[#BB5D0E]/25",
+    iconText: "text-[#BB5D0E]",
+    iconBorder: "border-[#D8992E]/40",
+    numHover: "group-hover:from-[#D8992E] group-hover:to-[#BB5D0E]",
+    borderHover: "hover:border-[#D8992E]/70 hover:shadow-[#BB5D0E]/10",
+    tagBg: "text-[#BB5D0E] group-hover:text-[#6E2C00]",
   },
   amber: {
-    sideRail: "bg-gradient-to-b from-amber-400 via-emerald-500 to-teal-600",
-    sideGlow: "bg-amber-400/25",
-    cardAura: "from-amber-500/8 via-transparent to-transparent",
-    iconBg: "bg-amber-50",
-    iconHover: "group-hover:bg-gradient-to-br group-hover:from-amber-500 group-hover:to-emerald-600 group-hover:text-white group-hover:border-amber-400 group-hover:shadow-md group-hover:shadow-amber-500/25",
-    iconText: "text-amber-600",
-    iconBorder: "border-amber-200/80",
-    numHover: "group-hover:from-amber-600 group-hover:to-emerald-600",
-    borderHover: "hover:border-amber-400/80 hover:shadow-amber-500/10",
-    tagBg: "text-amber-600 group-hover:text-amber-700",
+    sideRail: "bg-gradient-to-b from-[#D8992E] via-[#BB5D0E] to-[#6E2C00]",
+    sideGlow: "bg-[#BB5D0E]/25",
+    cardAura: "from-[#BB5D0E]/10 via-transparent to-transparent",
+    iconBg: "bg-[#BB5D0E]/12",
+    iconHover: "group-hover:bg-gradient-to-br group-hover:from-[#BB5D0E] group-hover:to-[#6E2C00] group-hover:text-white group-hover:border-[#BB5D0E] group-hover:shadow-md group-hover:shadow-[#6E2C00]/25",
+    iconText: "text-[#BB5D0E]",
+    iconBorder: "border-[#BB5D0E]/30",
+    numHover: "group-hover:from-[#BB5D0E] group-hover:to-[#6E2C00]",
+    borderHover: "hover:border-[#BB5D0E]/60 hover:shadow-[#6E2C00]/10",
+    tagBg: "text-[#BB5D0E] group-hover:text-[#6E2C00]",
   },
 };
 
@@ -75,29 +76,29 @@ export const NitrofixBenefits: React.FC = () => {
     <section
       id="nitrofix-benefits"
       aria-label="NitroFIX Benefits Section"
-      className="relative w-full py-10 md:py-12 bg-white  overflow-hidden"
+      className="relative w-full py-10 md:py-12 bg-[#FBF7F2] overflow-hidden"
     >
-      {/* ── Ambient Background Glows ── */}
-      <div className="absolute top-1/3 left-5 w-80 h-80 bg-emerald-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-5 right-10 w-80 h-80 bg-sky-100/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* ── Ambient Kashmir Harud Glows ── */}
+      <div className="absolute top-1/3 left-5 w-80 h-80 bg-[#FFD37C]/20 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-5 right-10 w-80 h-80 bg-[#7E393F]/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ── 1. Compact Start-Aligned Header ── */}
         <div className="text-left max-w-2xl mb-6 sm:mb-7 space-y-1">
-          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-100/70 border border-emerald-200 text-emerald-800 text-[10px] font-mono font-semibold uppercase tracking-wider">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md badge-nitrofix text-[10px] font-mono font-semibold uppercase tracking-wider">
+            <ChinarLeafSvg className="w-3 h-3 text-[#A61A28]" />
             {tag}
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-space tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#2B1203] font-space tracking-tight">
             <span>{headingPrefix}</span>
-            <span className="bg-gradient-to-r from-[#1b4332] via-[#2d6a4f] to-[#40916c] bg-clip-text text-transparent font-extrabold">
+            <span className="text-gradient-leaf font-extrabold">
               {headingHighlight}
             </span>
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-600 font-work-sans leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#514646] font-work-sans leading-relaxed">
             {subtitle}
           </p>
         </div>
@@ -111,7 +112,7 @@ export const NitrofixBenefits: React.FC = () => {
             return (
               <div
                 key={card.id}
-                className={`group relative flex flex-col justify-between p-5 sm:p-5.5 min-h-[220px] sm:min-h-[235px] rounded-xl bg-white border border-slate-200/90 shadow-2xs hover:shadow-lg ${style.borderHover} transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                className={`group relative flex flex-col justify-between p-5 sm:p-5.5 min-h-[220px] sm:min-h-[235px] rounded-xl bg-[#FFFDF9] border border-[#6E2C00]/15 shadow-2xs hover:shadow-lg ${style.borderHover} transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
               >
                 {/* ── Side Effect: Vertical Edge Glow Rail ── */}
                 <div
@@ -132,7 +133,7 @@ export const NitrofixBenefits: React.FC = () => {
                 <div className="space-y-3.5 relative z-10">
                   <div className="flex items-center justify-between">
                     <span
-                      className={`text-2xl sm:text-3xl font-black font-space tracking-tight bg-gradient-to-br from-slate-300 via-slate-400 to-slate-400 bg-clip-text text-transparent ${style.numHover} transition-all duration-300`}
+                      className={`text-2xl sm:text-3xl font-black font-space tracking-tight bg-gradient-to-br from-[#D6C6B6] via-[#BFA995] to-[#A68C75] bg-clip-text text-transparent ${style.numHover} transition-all duration-300`}
                     >
                       {card.number}
                     </span>
@@ -148,21 +149,21 @@ export const NitrofixBenefits: React.FC = () => {
 
                   {/* Card Title & Description */}
                   <div className="space-y-1">
-                    <h3 className="text-base sm:text-lg font-bold font-space text-slate-900 tracking-tight">
+                    <h3 className="text-base sm:text-lg font-bold font-space text-[#2B1203] tracking-tight">
                       {card.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] text-slate-600 font-work-sans leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-[#514646] font-work-sans leading-relaxed">
                       {card.description}
                     </p>
                   </div>
                 </div>
 
                 {/* ── Bottom Section: Meta Tag ── */}
-                <div className="relative z-10 pt-3 mt-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400 transition-colors">
+                <div className="relative z-10 pt-3 mt-3.5 border-t border-[#6E2C00]/10 flex items-center justify-between text-[11px] font-mono text-[#514646]/70 transition-colors">
                   <span className={`font-semibold ${style.tagBg} transition-colors`}>
                     Advantage {card.number}
                   </span>
-                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-slate-50 border border-slate-100 group-hover:border-emerald-200 group-hover:bg-emerald-50 group-hover:text-emerald-600 transition-all duration-300">
+                  <div className="flex items-center justify-center w-5 h-5 rounded-full bg-[#FBF7F2] border border-[#6E2C00]/15 group-hover:border-[#BB5D0E]/45 group-hover:bg-[#FFD37C]/25 group-hover:text-[#6E2C00] transition-all duration-300">
                     <ArrowUpRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
                 </div>

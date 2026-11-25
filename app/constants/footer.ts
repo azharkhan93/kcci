@@ -1,7 +1,7 @@
 import {
-  Cpu,
-  Sparkles,
-  Mail,
+  Building2,
+  Compass,
+  Landmark,
   type LucideIcon,
 } from "lucide-react";
 
@@ -19,49 +19,50 @@ export interface FooterColumn {
 
 export const FOOTER_DATA = {
   brand: {
-    name: "Farm Health Innovations",
+    name: "The Kashmir Chamber of Commerce & Industry",
     description:
-      "Farm Health Innovations supplies high-performing crop inputs today while developing smarter, sustainable technologies for tomorrow — from trusted agrochemicals to circular biopolymer hydrogels.",
+      "The Kashmir Chamber of Commerce and Industry has been constituted in the year 1924 by the prominent businessmen of Kashmir and its memorandum and articles of association has been sanctioned by his Highness Government in the year 1935.",
   },
   solutionsColumn: {
-    title: "Technology & Products",
-    icon: Cpu,
+    title: "Industries & Areas",
+    icon: Compass,
     links: [
-      { label: "NitroFIX™ Biopolymer Matrix", href: "/nitrofix", badge: "Core" },
-      { label: "Flagship Innovation Overview", href: "/#nitrofix-feature" },
-      { label: "Water & Nutrient Efficiency", href: "/#nitrofix-benefits" },
-      { label: "Circular Biomass Upcycling", href: "/#orchard-process" },
-      { label: "Target Application Domains", href: "/nitrofix" },
+      { label: "Kashmir Handicrafts", href: "/#key-sectors", badge: "GI Heritage" },
+      { label: "Tourism & Hospitality", href: "/#key-sectors" },
+      { label: "Information Technology", href: "/#key-sectors" },
+      { label: "Agriculture & Ecology", href: "/#key-sectors" },
+      { label: "General Trade & Industries", href: "/#key-sectors" },
     ],
   },
   companyColumn: {
-    title: "Ecosystem & Platform",
-    icon: Sparkles,
+    title: "Chamber Portal",
+    icon: Landmark,
     links: [
-      { label: "About Us & Vision", href: "/about" },
-      { label: "Core Agricultural Advantages", href: "/about" },
-      { label: "Verified Quality Standards", href: "/about" },
-      { label: "Enterprise & Partner Inquiry", href: "/contact" },
-      { label: "Technical Support & Inquiries", href: "/contact" },
+      { label: "About the Chamber", href: "/about" },
+      { label: "Latest News & Updates", href: "/#latest-news" },
+      { label: "Member Voices", href: "/#testimonials" },
+      { label: "Chamber Inquiries", href: "/contact" },
+      { label: "Official Website", href: "https://thekcci.in/" },
     ],
   },
   contact: {
-    title: "Direct Inquiries & Headquarters",
-    icon: Mail,
-    address: "4/3 S. D Colony Batamaloo, Srinagar, J&K-190006",
+    title: "Chamber Secretariat",
+    icon: Building2,
+    address: "Mohidin Trust Building, Residency Road, Srinagar, India, 190001",
     emails: [
-      { label: "admin@farmhealth.in", href: "mailto:admin@farmhealth.in" },
-      { label: "support@farm2i.com", href: "mailto:support@farm2i.com" },
-    ],
+      {
+        label: "thekashmirchamber@gmail.com",
+        href: "mailto:thekashmirchamber@gmail.com",
+      },
+    ] as FooterLink[],
     phones: [
-      { label: "+91 94038 90112", href: "tel:+919403890112" },
-      { label: "+91 9758083252", href: "tel:+919758083252" },
-    ],
-    hours: "Mon – Sat: 9:00 AM – 5:30 PM IST",
+      { label: "+91 194 2452517", href: "tel:+911942452517" },
+      { label: "+91 911943102168", href: "tel:+91911943102168" },
+    ] as FooterLink[],
+    hours: "Monday To Saturday - 10.00 - 07.00 · Sunday - Closed",
   },
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },
-    { label: "Security & Compliance", href: "/terms" },
   ],
 };
