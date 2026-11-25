@@ -230,24 +230,44 @@ body {
   background-color: #7E393F;
 }
 
-/* ── Button Size Classes ─────────────────────────────────── */
-.btn-sm {
-  padding: 8px 16px;
-  font-size: 0.75rem;
-  border-radius: 8px;
-  gap: 6px;
-}
-.btn-md {
-  padding: 14px 28px;
-  font-size: 1rem;
-  border-radius: 12px;
-  gap: 10px;
-}
-.btn-lg {
-  padding: 16px 36px;
-  font-size: 1.125rem;
-  border-radius: 12px;
-  gap: 12px;
+/* ── Button Size Classes (Layered so Tailwind responsive utilities apply cleanly) ── */
+@layer components {
+  .btn-sm {
+    padding: 7px 12px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+    gap: 6px;
+  }
+  .btn-md {
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    border-radius: 10px;
+    gap: 8px;
+  }
+  .btn-lg {
+    padding: 12px 24px;
+    font-size: 0.9375rem;
+    border-radius: 10px;
+    gap: 8px;
+  }
+
+  @media (min-width: 640px) {
+    .btn-sm {
+      padding: 8px 16px;
+    }
+    .btn-md {
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 12px;
+      gap: 10px;
+    }
+    .btn-lg {
+      padding: 16px 36px;
+      font-size: 1.125rem;
+      border-radius: 12px;
+      gap: 12px;
+    }
+  }
 }
 
 /* ── Kashmir Harud & Chinar Gradients ─────────────────────── */

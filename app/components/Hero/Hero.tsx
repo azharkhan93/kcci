@@ -168,18 +168,18 @@ export const Hero: React.FC = () => {
           {/* Clean Staggered Dual Actions */}
           <div
             ref={actionsRef}
-            className="flex flex-row items-center gap-3 pt-1 w-full sm:w-auto"
+            className="flex flex-row items-center gap-2 sm:gap-3 pt-1 w-full sm:w-auto"
           >
             <Link
               href={currentSlide.primaryCtaHref || "/#key-sectors"}
-              className="flex-1 sm:flex-initial group"
+              className="flex-1 min-w-0 sm:flex-initial group"
             >
               <Button
                 variant="primary"
-                size="md"
-                className="w-full sm:w-auto text-xs sm:text-sm px-4 sm:px-6 py-3 sm:py-3.5 whitespace-nowrap !rounded-xl flex-row-reverse"
+                size="sm"
+                className="w-full sm:w-auto text-[11px] sm:text-sm px-2.5 sm:px-5 py-2 sm:py-3 whitespace-nowrap !rounded-lg sm:!rounded-xl flex-row-reverse gap-1 sm:gap-2"
                 icon={
-                  <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 }
               >
                 {currentSlide.primaryCtaText}
@@ -188,12 +188,12 @@ export const Hero: React.FC = () => {
 
             <Link
               href={currentSlide.secondaryCtaHref || "/contact"}
-              className="flex-1 sm:flex-initial"
+              className="flex-1 min-w-0 sm:flex-initial"
             >
               <Button
                 variant="outline"
-                size="md"
-                className="w-full sm:w-auto text-xs sm:text-sm px-4 sm:px-6 py-3 sm:py-3.5 whitespace-nowrap !rounded-xl !bg-white/[0.07] hover:!bg-white/[0.15] !text-[#FBF7F2] !border !border-[#FFD37C]/30 hover:!border-[#FFD37C]/70 backdrop-blur-md !shadow-none !font-semibold"
+                size="sm"
+                className="w-full sm:w-auto text-[11px] sm:text-sm px-2.5 sm:px-5 py-2 sm:py-3 whitespace-nowrap !rounded-lg sm:!rounded-xl !bg-white/[0.07] hover:!bg-white/[0.15] !text-[#FBF7F2] !border !border-[#FFD37C]/30 hover:!border-[#FFD37C]/70 backdrop-blur-md !shadow-none !font-semibold"
               >
                 {currentSlide.secondaryCtaText}
               </Button>
